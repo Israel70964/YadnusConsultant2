@@ -23,6 +23,7 @@ import AdminProjects from "@/pages/admin/projects";
 import AdminWebinars from "@/pages/admin/webinars";
 import AdminSubmissions from "@/pages/admin/submissions";
 import AdminFiles from "@/pages/admin/files";
+import AdminNewsletter from "@/pages/admin/newsletter";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -57,6 +58,7 @@ function Router() {
           <Route path="/admin/webinars" component={AdminWebinars} />
           <Route path="/admin/submissions" component={AdminSubmissions} />
           <Route path="/admin/files" component={AdminFiles} />
+          <Route path="/admin/newsletter" component={AdminNewsletter} />
         </>
       )}
       
