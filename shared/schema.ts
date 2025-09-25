@@ -87,6 +87,21 @@ export const submissions = pgTable("submissions", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// File uploads for projects and media management
+export const files = pgTable("files", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  filename: varchar("filename").notNull(),
+  originalName: varchar("original_name").notNull(),
+  mimeType: varchar("mime_type").notNull(),
+  size: integer("size").notNull(),
+  path: varchar("path").notNull(),
+  category: varchar("category").notNull(), // project, media, document, image
+  relatedId: varchar("related_id"), // ID of related project, post, etc.
+  relatedType: varchar("related_type"), // project, blog_post, webinar
+  uploadedBy: varchar("uploaded_by").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Export types
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
@@ -102,6 +117,9 @@ export type Webinar = typeof webinars.$inferSelect;
 
 export type InsertSubmission = typeof submissions.$inferInsert;
 export type Submission = typeof submissions.$inferSelect;
+
+export type InsertFile = typeof files.$inferInsert;
+export type File = typeof files.$inferSelect;
 
 // Validation schemas
 export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
@@ -125,6 +143,11 @@ export const insertWebinarSchema = createInsertSchema(webinars).omit({
 });
 
 export const insertSubmissionSchema = createInsertSchema(submissions).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertFileSchema = createInsertSchema(files).omit({
   id: true,
   createdAt: true,
 });

@@ -4,6 +4,7 @@ import {
   projects,
   webinars,
   submissions,
+  files,
   type User,
   type UpsertUser,
   type BlogPost,
@@ -14,6 +15,8 @@ import {
   type InsertWebinar,
   type Submission,
   type InsertSubmission,
+  type File,
+  type InsertFile,
 } from "@shared/schema";
 import { db } from "./db";
 import { eq, desc, and, ilike, or, sql, gte, lt } from "drizzle-orm";
@@ -53,6 +56,13 @@ export interface IStorage {
   getSubmissions(type?: string): Promise<Submission[]>;
   createSubmission(submission: InsertSubmission): Promise<Submission>;
   deleteSubmission(id: string): Promise<void>;
+
+  // File operations
+  getFiles(category?: string, relatedId?: string): Promise<File[]>;
+  getFile(id: string): Promise<File | undefined>;
+  createFile(file: InsertFile): Promise<File>;
+  deleteFile(id: string): Promise<void>;
+  getFilesByProject(projectId: string): Promise<File[]>;
 }
 
 export class DatabaseStorage implements IStorage {
@@ -232,6 +242,53 @@ export class DatabaseStorage implements IStorage {
 
   async deleteSubmission(id: string): Promise<void> {
     await db.delete(submissions).where(eq(submissions.id, id));
+  }
+
+  // File operations
+  async getFiles(category?: string, relatedId?: string): Promise<File[]> {
+    if (category && relatedId) {
+      return await db
+        .select()
+        .from(files)
+        .where(and(eq(files.category, category), eq(files.relatedId, relatedId)))
+        .orderBy(desc(files.createdAt));
+    } else if (category) {
+      return await db
+        .select()
+        .from(files)
+        .where(eq(files.category, category))
+        .orderBy(desc(files.createdAt));
+    } else if (relatedId) {
+      return await db
+        .select()
+        .from(files)
+        .where(eq(files.relatedId, relatedId))
+        .orderBy(desc(files.createdAt));
+    }
+    
+    return await db.select().from(files).orderBy(desc(files.createdAt));
+  }
+
+  async getFile(id: string): Promise<File | undefined> {
+    const [file] = await db.select().from(files).where(eq(files.id, id));
+    return file;
+  }
+
+  async createFile(file: InsertFile): Promise<File> {
+    const [newFile] = await db.insert(files).values(file).returning();
+    return newFile;
+  }
+
+  async deleteFile(id: string): Promise<void> {
+    await db.delete(files).where(eq(files.id, id));
+  }
+
+  async getFilesByProject(projectId: string): Promise<File[]> {
+    return await db
+      .select()
+      .from(files)
+      .where(and(eq(files.relatedType, 'project'), eq(files.relatedId, projectId)))
+      .orderBy(desc(files.createdAt));
   }
 }
 

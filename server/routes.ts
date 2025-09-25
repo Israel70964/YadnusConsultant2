@@ -1,4 +1,5 @@
 import type { Express } from "express";
+import express from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { setupAuth, isAuthenticated } from "./replitAuth";
@@ -365,20 +366,140 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // File upload for admin
+  // Enhanced file upload system
   app.post('/api/upload', isAuthenticated, upload.single('file'), async (req, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ message: "No file uploaded" });
       }
       
-      const fileUrl = `/uploads/${req.file.filename}`;
-      res.json({ url: fileUrl });
+      const { category = 'media', relatedId, relatedType } = req.body;
+      const userId = req.user?.id;
+      
+      if (!userId) {
+        return res.status(401).json({ message: "User not authenticated" });
+      }
+      
+      // Create file record in database
+      const file = await storage.createFile({
+        filename: req.file.filename,
+        originalName: req.file.originalname,
+        mimeType: req.file.mimetype,
+        size: req.file.size,
+        path: req.file.path,
+        category,
+        relatedId: relatedId || null,
+        relatedType: relatedType || null,
+        uploadedBy: userId,
+      });
+      
+      res.json({ 
+        id: file.id,
+        url: `/uploads/${req.file.filename}`,
+        filename: file.filename,
+        originalName: file.originalName,
+        size: file.size,
+        mimeType: file.mimeType
+      });
     } catch (error) {
       console.error("Error uploading file:", error);
       res.status(500).json({ message: "Failed to upload file" });
     }
   });
+
+  // Multiple file upload
+  app.post('/api/upload-multiple', isAuthenticated, upload.array('files', 10), async (req, res) => {
+    try {
+      const files = req.files as Express.Multer.File[];
+      if (!files || files.length === 0) {
+        return res.status(400).json({ message: "No files uploaded" });
+      }
+      
+      const { category = 'media', relatedId, relatedType } = req.body;
+      const userId = req.user?.id;
+      
+      if (!userId) {
+        return res.status(401).json({ message: "User not authenticated" });
+      }
+      
+      const uploadedFiles = [];
+      
+      for (const file of files) {
+        const fileRecord = await storage.createFile({
+          filename: file.filename,
+          originalName: file.originalname,
+          mimeType: file.mimetype,
+          size: file.size,
+          path: file.path,
+          category,
+          relatedId: relatedId || null,
+          relatedType: relatedType || null,
+          uploadedBy: userId,
+        });
+        
+        uploadedFiles.push({
+          id: fileRecord.id,
+          url: `/uploads/${file.filename}`,
+          filename: fileRecord.filename,
+          originalName: fileRecord.originalName,
+          size: fileRecord.size,
+          mimeType: fileRecord.mimeType
+        });
+      }
+      
+      res.json({ files: uploadedFiles });
+    } catch (error) {
+      console.error("Error uploading files:", error);
+      res.status(500).json({ message: "Failed to upload files" });
+    }
+  });
+
+  // Get files by category or project
+  app.get('/api/files', isAuthenticated, async (req, res) => {
+    try {
+      const { category, relatedId } = req.query;
+      const files = await storage.getFiles(category as string, relatedId as string);
+      
+      const filesWithUrls = files.map(file => ({
+        ...file,
+        url: `/uploads/${file.filename}`
+      }));
+      
+      res.json(filesWithUrls);
+    } catch (error) {
+      console.error("Error fetching files:", error);
+      res.status(500).json({ message: "Failed to fetch files" });
+    }
+  });
+
+  // Delete file
+  app.delete('/api/files/:id', isAuthenticated, async (req, res) => {
+    try {
+      const file = await storage.getFile(req.params.id);
+      if (!file) {
+        return res.status(404).json({ message: "File not found" });
+      }
+      
+      // Delete file from filesystem
+      const fs = await import('fs/promises');
+      try {
+        await fs.unlink(file.path);
+      } catch (fsError) {
+        console.warn("File not found on filesystem:", file.path);
+      }
+      
+      // Delete from database
+      await storage.deleteFile(req.params.id);
+      
+      res.status(204).send();
+    } catch (error) {
+      console.error("Error deleting file:", error);
+      res.status(500).json({ message: "Failed to delete file" });
+    }
+  });
+
+  // Serve uploaded files
+  app.use('/uploads', express.static('uploads'));
 
   const httpServer = createServer(app);
   return httpServer;

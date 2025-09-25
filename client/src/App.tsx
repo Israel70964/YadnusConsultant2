@@ -22,6 +22,7 @@ import AdminPosts from "@/pages/admin/posts";
 import AdminProjects from "@/pages/admin/projects";
 import AdminWebinars from "@/pages/admin/webinars";
 import AdminSubmissions from "@/pages/admin/submissions";
+import AdminFiles from "@/pages/admin/files";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -55,6 +56,7 @@ function Router() {
           <Route path="/admin/projects" component={AdminProjects} />
           <Route path="/admin/webinars" component={AdminWebinars} />
           <Route path="/admin/submissions" component={AdminSubmissions} />
+          <Route path="/admin/files" component={AdminFiles} />
         </>
       )}
       

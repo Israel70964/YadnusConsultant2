@@ -26,6 +26,7 @@ export default function Header() {
     { name: "Posts", href: "/admin/posts" },
     { name: "Projects", href: "/admin/projects" },
     { name: "Webinars", href: "/admin/webinars" },
+    { name: "Files", href: "/admin/files" },
     { name: "Submissions", href: "/admin/submissions" },
   ];
 
