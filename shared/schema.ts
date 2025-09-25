@@ -113,6 +113,54 @@ export const files = pgTable("files", {
   createdAt: timestamp("created_at").defaultNow(),
 });
 
+// Newsletter subscribers
+export const subscribers = pgTable("subscribers", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  email: varchar("email").notNull().unique(),
+  name: varchar("name"),
+  isActive: boolean("is_active").default(true),
+  source: varchar("source").default("website"), // website, manual, import
+  tags: text("tags").array().default(sql`ARRAY[]::text[]`),
+  preferences: jsonb("preferences"), // Email preferences, frequency, topics
+  subscribedAt: timestamp("subscribed_at").defaultNow(),
+  unsubscribedAt: timestamp("unsubscribed_at"),
+});
+
+// Newsletter campaigns
+export const campaigns = pgTable("campaigns", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  name: varchar("name").notNull(),
+  subject: text("subject").notNull(),
+  content: text("content").notNull(),
+  htmlContent: text("html_content"),
+  recipientCount: integer("recipient_count").default(0),
+  sentCount: integer("sent_count").default(0),
+  openCount: integer("open_count").default(0),
+  clickCount: integer("click_count").default(0),
+  bounceCount: integer("bounce_count").default(0),
+  status: varchar("status").default("draft"), // draft, scheduled, sending, sent, failed
+  scheduledAt: timestamp("scheduled_at"),
+  sentAt: timestamp("sent_at"),
+  tags: text("tags").array().default(sql`ARRAY[]::text[]`),
+  segmentCriteria: jsonb("segment_criteria"), // Filter criteria for recipients
+  templateId: varchar("template_id"), // For reusable templates
+  createdBy: varchar("created_by").notNull(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
+});
+
+// Campaign analytics and tracking
+export const campaignEvents = pgTable("campaign_events", {
+  id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
+  campaignId: varchar("campaign_id").notNull(),
+  subscriberId: varchar("subscriber_id").notNull(),
+  eventType: varchar("event_type").notNull(), // sent, opened, clicked, bounced, unsubscribed
+  eventData: jsonb("event_data"), // Additional event metadata
+  ipAddress: varchar("ip_address"),
+  userAgent: text("user_agent"),
+  createdAt: timestamp("created_at").defaultNow(),
+});
+
 // Export types
 export type UpsertUser = typeof users.$inferInsert;
 export type User = typeof users.$inferSelect;
@@ -131,6 +179,15 @@ export type Submission = typeof submissions.$inferSelect;
 
 export type InsertFile = typeof files.$inferInsert;
 export type File = typeof files.$inferSelect;
+
+export type InsertSubscriber = typeof subscribers.$inferInsert;
+export type Subscriber = typeof subscribers.$inferSelect;
+
+export type InsertCampaign = typeof campaigns.$inferInsert;
+export type Campaign = typeof campaigns.$inferSelect;
+
+export type InsertCampaignEvent = typeof campaignEvents.$inferInsert;
+export type CampaignEvent = typeof campaignEvents.$inferSelect;
 
 // Validation schemas
 export const insertBlogPostSchema = createInsertSchema(blogPosts).omit({
@@ -159,6 +216,31 @@ export const insertSubmissionSchema = createInsertSchema(submissions).omit({
 });
 
 export const insertFileSchema = createInsertSchema(files).omit({
+  id: true,
+  createdAt: true,
+});
+
+export const insertSubscriberSchema = createInsertSchema(subscribers).omit({
+  id: true,
+  subscribedAt: true,
+  unsubscribedAt: true,
+});
+
+export const insertCampaignSchema = createInsertSchema(campaigns).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+  sentAt: true,
+  recipientCount: true,
+  sentCount: true,
+  openCount: true,
+  clickCount: true,
+  bounceCount: true,
+}).extend({
+  scheduledAt: z.union([z.date(), z.string().transform((str) => new Date(str))]).optional(),
+});
+
+export const insertCampaignEventSchema = createInsertSchema(campaignEvents).omit({
   id: true,
   createdAt: true,
 });
