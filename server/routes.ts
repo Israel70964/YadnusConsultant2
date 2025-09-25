@@ -498,6 +498,150 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Advanced webinar streaming routes
+  app.post('/api/webinars/:id/setup-youtube', isAuthenticated, async (req, res) => {
+    try {
+      const { youtubeAccessToken, youtubeRefreshToken } = req.body;
+      const webinar = await storage.getWebinar(req.params.id);
+      
+      if (!webinar) {
+        return res.status(404).json({ message: "Webinar not found" });
+      }
+
+      const { streamingService } = await import('./streamingService');
+      
+      const liveStream = await streamingService.setupYoutubeLive({
+        title: webinar.title,
+        description: webinar.description,
+        scheduledStartTime: new Date(webinar.date),
+        youtubeAccessToken,
+        youtubeRefreshToken
+      });
+
+      // Update webinar with YouTube stream info
+      await storage.updateWebinar(req.params.id, {
+        streamingPlatform: 'youtube',
+        youtubeLiveId: liveStream.broadcastId,
+        youtubeStreamKey: liveStream.streamKey,
+        streamMetadata: liveStream,
+        streamingStatus: 'scheduled'
+      });
+
+      res.json(liveStream);
+    } catch (error) {
+      console.error("Error setting up YouTube Live:", error);
+      res.status(500).json({ message: "Failed to setup YouTube Live stream" });
+    }
+  });
+
+  app.post('/api/webinars/:id/setup-zoom', isAuthenticated, async (req, res) => {
+    try {
+      const { password, settings } = req.body;
+      const webinar = await storage.getWebinar(req.params.id);
+      
+      if (!webinar) {
+        return res.status(404).json({ message: "Webinar not found" });
+      }
+
+      const { streamingService } = await import('./streamingService');
+      
+      const meeting = await streamingService.setupZoomMeeting({
+        title: webinar.title,
+        description: webinar.description,
+        scheduledStartTime: new Date(webinar.date),
+        duration: 60, // Default 1 hour
+        password,
+        settings
+      });
+
+      // Update webinar with Zoom meeting info
+      await storage.updateWebinar(req.params.id, {
+        streamingPlatform: 'zoom',
+        zoomMeetingId: meeting.meetingId,
+        zoomPassword: meeting.password,
+        streamMetadata: meeting,
+        streamingStatus: 'scheduled'
+      });
+
+      res.json(meeting);
+    } catch (error) {
+      console.error("Error setting up Zoom meeting:", error);
+      res.status(500).json({ message: "Failed to setup Zoom meeting" });
+    }
+  });
+
+  app.post('/api/webinars/:id/start-stream', isAuthenticated, async (req, res) => {
+    try {
+      const webinar = await storage.getWebinar(req.params.id);
+      
+      if (!webinar) {
+        return res.status(404).json({ message: "Webinar not found" });
+      }
+
+      const { streamingService } = await import('./streamingService');
+      
+      const streamId = webinar.streamingPlatform === 'youtube' 
+        ? webinar.youtubeLiveId 
+        : webinar.zoomMeetingId;
+
+      if (!streamId) {
+        return res.status(400).json({ message: "Stream not configured" });
+      }
+
+      const result = await streamingService.startLiveStream(
+        webinar.streamingPlatform as 'youtube' | 'zoom',
+        streamId
+      );
+
+      // Update webinar status
+      await storage.updateWebinar(req.params.id, {
+        streamingStatus: 'live',
+        isLive: true
+      });
+
+      res.json(result);
+    } catch (error) {
+      console.error("Error starting live stream:", error);
+      res.status(500).json({ message: "Failed to start live stream" });
+    }
+  });
+
+  app.post('/api/webinars/:id/end-stream', isAuthenticated, async (req, res) => {
+    try {
+      const webinar = await storage.getWebinar(req.params.id);
+      
+      if (!webinar) {
+        return res.status(404).json({ message: "Webinar not found" });
+      }
+
+      const { streamingService } = await import('./streamingService');
+      
+      const streamId = webinar.streamingPlatform === 'youtube' 
+        ? webinar.youtubeLiveId 
+        : webinar.zoomMeetingId;
+
+      if (!streamId) {
+        return res.status(400).json({ message: "Stream not configured" });
+      }
+
+      const result = await streamingService.endLiveStream(
+        webinar.streamingPlatform as 'youtube' | 'zoom',
+        streamId
+      );
+
+      // Update webinar status
+      await storage.updateWebinar(req.params.id, {
+        streamingStatus: 'ended',
+        isLive: false
+      });
+
+      res.json(result);
+    } catch (error) {
+      console.error("Error ending live stream:", error);
+      res.status(500).json({ message: "Failed to end live stream" });
+    }
+  });
+
   // Serve uploaded files
   app.use('/uploads', express.static('uploads'));
 

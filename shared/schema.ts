@@ -74,6 +74,17 @@ export const webinars = pgTable("webinars", {
   thumbnailUrl: text("thumbnail_url"),
   isLive: boolean("is_live").default(false),
   registrationCount: integer("registration_count").default(0),
+  // Advanced streaming features
+  streamingPlatform: varchar("streaming_platform"), // youtube, zoom, custom
+  youtubeStreamKey: text("youtube_stream_key"),
+  youtubeLiveId: text("youtube_live_id"),
+  zoomMeetingId: text("zoom_meeting_id"),
+  zoomPassword: text("zoom_password"),
+  chatEnabled: boolean("chat_enabled").default(true),
+  recordingEnabled: boolean("recording_enabled").default(true),
+  maxAttendees: integer("max_attendees").default(100),
+  streamingStatus: varchar("streaming_status").default("scheduled"), // scheduled, live, ended, cancelled
+  streamMetadata: jsonb("stream_metadata"), // Additional platform-specific data
   createdAt: timestamp("created_at").defaultNow(),
   updatedAt: timestamp("updated_at").defaultNow(),
 });
