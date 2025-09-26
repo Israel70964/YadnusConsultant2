@@ -159,7 +159,8 @@ export async function setupAuth(app: Express) {
       })(req, res, next);
     });
 
-    app.get("/api/logout", (req, res) => {
+    app.get("/api/logout", async (req, res) => {
+      const config = await getOidcConfig();
       req.logout(() => {
         res.redirect(
           client.buildEndSessionUrl(config, {
@@ -198,7 +199,11 @@ export async function setupAuth(app: Express) {
 
         req.login(user, (err) => {
           if (err) return next(err);
-          res.status(201).json({ id: user.id, username: user.username, email: user.email });
+          res.status(201).json({ 
+            id: (user as any).id, 
+            username: (user as any).username, 
+            email: (user as any).email 
+          });
         });
       } catch (error) {
         console.error("Registration error:", error);
