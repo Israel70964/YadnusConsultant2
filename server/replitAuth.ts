@@ -170,6 +170,16 @@ export async function setupAuth(app: Express) {
 }
 
 export const isAuthenticated: RequestHandler = async (req, res, next) => {
+  if (!isReplitEnvironment) {
+    // For external deployments, allow all authenticated requests
+    if (req.isAuthenticated()) {
+      return next();
+    } else {
+      return res.status(401).json({ message: "Unauthorized" });
+    }
+  }
+
+  // Replit authentication logic
   const user = req.user as any;
 
   if (!req.isAuthenticated() || !user.expires_at) {
