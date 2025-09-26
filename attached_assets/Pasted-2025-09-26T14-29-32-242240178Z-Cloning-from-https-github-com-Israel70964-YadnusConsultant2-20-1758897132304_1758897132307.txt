@@ -1,0 +1,35 @@
+2025-09-26T14:29:32.242240178Z ==> Cloning from https://github.com/Israel70964/YadnusConsultant2
+2025-09-26T14:29:32.768551683Z ==> Checking out commit e1bd4aa98fc2dbb961bb26c06ad9f242f6ad641e in branch main
+2025-09-26T14:29:38.429404Z ==> Using Node.js version 18.19.0 via /opt/render/project/src/.nvmrc
+2025-09-26T14:29:38.454442943Z ==> Node.js version 18.19.0 has reached end-of-life.
+2025-09-26T14:29:38.454464404Z ==> Upgrade to a maintained version to receive important security updates.
+2025-09-26T14:29:38.454468914Z ==> Information on maintained Node.js versions: https://nodejs.org/en/about/previous-releases
+2025-09-26T14:29:38.454514735Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-09-26T14:29:40.377437174Z ==> Running build command 'npm install && npx vite build && npx esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist'...
+2025-09-26T14:29:54.387705618Z 
+2025-09-26T14:29:54.387735418Z added 453 packages, and audited 454 packages in 14s
+2025-09-26T14:29:54.387970364Z 
+2025-09-26T14:29:54.387987494Z 62 packages are looking for funding
+2025-09-26T14:29:54.387998404Z   run `npm fund` for details
+2025-09-26T14:29:54.39049177Z 
+2025-09-26T14:29:54.390505351Z 3 low severity vulnerabilities
+2025-09-26T14:29:54.390508991Z 
+2025-09-26T14:29:54.390512551Z To address all issues, run:
+2025-09-26T14:29:54.390515961Z   npm audit fix
+2025-09-26T14:29:54.390519361Z 
+2025-09-26T14:29:54.390522781Z Run `npm audit` for details.
+2025-09-26T14:29:57.520437301Z You are using Node.js 18.19.0. Vite requires Node.js version 20.19+ or 22.12+. Please upgrade your Node.js version.
+2025-09-26T14:29:57.64492884Z failed to load config from /opt/render/project/src/vite.config.ts
+2025-09-26T14:29:57.645142525Z error during build:
+2025-09-26T14:29:57.645151055Z Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /opt/render/project/src/node_modules/.vite-temp/vite.config.ts.timestamp-1758896997641-0305b2ef413a9.mjs
+2025-09-26T14:29:57.645155875Z     at new NodeError (node:internal/errors:405:5)
+2025-09-26T14:29:57.645159376Z     at packageResolve (node:internal/modules/esm/resolve:916:9)
+2025-09-26T14:29:57.645162836Z     at moduleResolve (node:internal/modules/esm/resolve:973:20)
+2025-09-26T14:29:57.645166736Z     at defaultResolve (node:internal/modules/esm/resolve:1193:11)
+2025-09-26T14:29:57.645170386Z     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:403:12)
+2025-09-26T14:29:57.645173896Z     at ModuleLoader.resolve (node:internal/modules/esm/loader:372:25)
+2025-09-26T14:29:57.645177326Z     at ModuleLoader.getModuleJob (node:internal/modules/esm/loader:249:38)
+2025-09-26T14:29:57.645180726Z     at ModuleWrap.<anonymous> (node:internal/modules/esm/module_job:76:39)
+2025-09-26T14:29:57.645184156Z     at link (node:internal/modules/esm/module_job:75:36)
+2025-09-26T14:29:57.702811072Z ==> Build failed 😞
+2025-09-26T14:29:57.702828572Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
