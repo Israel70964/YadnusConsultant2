@@ -212,7 +212,12 @@ export async function setupAuth(app: Express) {
     });
 
     app.post("/api/login", passport.authenticate("local"), (req, res) => {
-      res.json({ id: req.user?.id, username: req.user?.username, email: req.user?.email });
+      const user = req.user as any;
+      res.json({ 
+        id: user?.id, 
+        username: user?.username, 
+        email: user?.email 
+      });
     });
 
     app.get("/api/login", (req, res) => {
