@@ -122,8 +122,22 @@ export async function setupAuth(app: Express) {
       passport.use(strategy);
     }
   } else {
-    // Setup fallback authentication for external deployments
-    console.log("Setting up fallback authentication for external deployment");
+    // Setup username/password authentication for external deployments
+    console.log("Setting up username/password authentication for external deployment");
+    
+    passport.use(
+      new LocalStrategy(async (username, password, done) => {
+        try {
+          const user = await storage.getUserByUsername(username);
+          if (!user || !user.password || !(await comparePasswords(password, user.password))) {
+            return done(null, false);
+          }
+          return done(null, user);
+        } catch (error) {
+          return done(error);
+        }
+      })
+    );
   }
 
   passport.serializeUser((user: Express.User, cb) => cb(null, user));
@@ -156,32 +170,64 @@ export async function setupAuth(app: Express) {
       });
     });
   } else {
-    // External deployment - simple authentication bypass
+    // External deployment - secure username/password authentication
+    app.post("/api/register", async (req, res, next) => {
+      try {
+        const { username, password, email, firstName, lastName } = req.body;
+        
+        if (!username || !password) {
+          return res.status(400).json({ message: "Username and password are required" });
+        }
+
+        // Check if user already exists
+        const existingUser = await storage.getUserByUsername(username);
+        if (existingUser) {
+          return res.status(400).json({ message: "Username already exists" });
+        }
+
+        // Create new user with hashed password
+        const hashedPassword = await hashPassword(password);
+        const user = await storage.createUser({
+          username,
+          password: hashedPassword,
+          email,
+          firstName,
+          lastName,
+          authType: 'local',
+        });
+
+        req.login(user, (err) => {
+          if (err) return next(err);
+          res.status(201).json({ id: user.id, username: user.username, email: user.email });
+        });
+      } catch (error) {
+        console.error("Registration error:", error);
+        res.status(500).json({ message: "Registration failed" });
+      }
+    });
+
+    app.post("/api/login", passport.authenticate("local"), (req, res) => {
+      res.json({ id: req.user?.id, username: req.user?.username, email: req.user?.email });
+    });
+
     app.get("/api/login", (req, res) => {
-      // Create a mock user session for external deployments
-      const mockUser = {
-        id: 'external-user',
-        claims: {
-          sub: 'external-user',
-          email: 'admin@yadnusconsultant.com',
-          first_name: 'Admin',
-          last_name: 'User'
-        }
-      };
-      req.login(mockUser, (err) => {
-        if (err) {
-          return res.status(500).json({ error: 'Login failed' });
-        }
-        res.redirect('/');
-      });
+      res.status(405).json({ message: "Use POST method for login" });
     });
 
     app.get("/api/callback", (req, res) => {
       res.redirect("/");
     });
 
-    app.get("/api/logout", (req, res) => {
-      req.logout(() => {
+    app.post("/api/logout", (req, res, next) => {
+      req.logout((err) => {
+        if (err) return next(err);
+        res.json({ message: "Logged out successfully" });
+      });
+    });
+
+    app.get("/api/logout", (req, res, next) => {
+      req.logout((err) => {
+        if (err) return next(err);
         res.redirect("/");
       });
     });
