@@ -1,0 +1,66 @@
+2025-09-26T15:58:28.600750529Z ==> Cloning from https://github.com/Israel70964/YadnusConsultant2
+2025-09-26T15:58:29.096927222Z ==> Checking out commit a18fbf0c0910864fb4f943ab2f1920d6a15cc542 in branch main
+2025-09-26T15:58:29.655438564Z ==> Using Node.js version 20.19.0 via /opt/render/project/src/.nvmrc
+2025-09-26T15:58:29.680367847Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-09-26T15:58:31.400195743Z ==> Running build command 'npm install'...
+2025-09-26T15:58:41.772184647Z 
+2025-09-26T15:58:41.772211618Z added 549 packages, and audited 550 packages in 10s
+2025-09-26T15:58:41.772222779Z 
+2025-09-26T15:58:41.77225052Z 74 packages are looking for funding
+2025-09-26T15:58:41.772262621Z   run `npm fund` for details
+2025-09-26T15:58:41.795140498Z 
+2025-09-26T15:58:41.79517278Z 8 vulnerabilities (3 low, 5 moderate)
+2025-09-26T15:58:41.795178501Z 
+2025-09-26T15:58:41.795182931Z To address issues that do not require attention, run:
+2025-09-26T15:58:41.795186471Z   npm audit fix
+2025-09-26T15:58:41.795189741Z 
+2025-09-26T15:58:41.795193191Z To address all issues (including breaking changes), run:
+2025-09-26T15:58:41.795197551Z   npm audit fix --force
+2025-09-26T15:58:41.795200812Z 
+2025-09-26T15:58:41.795205052Z Run `npm audit` for details.
+2025-09-26T15:58:53.847706095Z ==> Uploading build...
+2025-09-26T15:59:02.932065427Z ==> Uploaded in 5.8s. Compression took 3.3s
+2025-09-26T15:59:02.967097628Z ==> Build successful 🎉
+2025-09-26T15:59:06.565150208Z ==> Deploying...
+2025-09-26T15:59:29.914833771Z ==> Running 'node --version && npm start'
+2025-09-26T15:59:30.012158618Z v20.19.0
+2025-09-26T15:59:31.007495692Z 
+2025-09-26T15:59:31.007516484Z > rest-express@1.0.0 start
+2025-09-26T15:59:31.007521294Z > NODE_ENV=production node dist/index.js
+2025-09-26T15:59:31.007523784Z 
+2025-09-26T15:59:31.21230553Z node:internal/modules/cjs/loader:1215
+2025-09-26T15:59:31.212324991Z   throw err;
+2025-09-26T15:59:31.212327981Z   ^
+2025-09-26T15:59:31.212330451Z 
+2025-09-26T15:59:31.212333311Z Error: Cannot find module '/opt/render/project/src/dist/index.js'
+2025-09-26T15:59:31.212336001Z     at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)
+2025-09-26T15:59:31.212339001Z     at Module._load (node:internal/modules/cjs/loader:1043:27)
+2025-09-26T15:59:31.212342202Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-26T15:59:31.212345612Z     at node:internal/main/run_main_module:28:49 {
+2025-09-26T15:59:31.212348252Z   code: 'MODULE_NOT_FOUND',
+2025-09-26T15:59:31.212351182Z   requireStack: []
+2025-09-26T15:59:31.212353572Z }
+2025-09-26T15:59:31.212355973Z 
+2025-09-26T15:59:31.212358322Z Node.js v20.19.0
+2025-09-26T15:59:32.474564782Z ==> Exited with status 1
+2025-09-26T15:59:32.489318182Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
+2025-09-26T15:59:38.021810528Z ==> Running 'node --version && npm start'
+2025-09-26T15:59:38.096699614Z v20.19.0
+2025-09-26T15:59:39.392926086Z 
+2025-09-26T15:59:39.392949897Z > rest-express@1.0.0 start
+2025-09-26T15:59:39.392954427Z > NODE_ENV=production node dist/index.js
+2025-09-26T15:59:39.392956897Z 
+2025-09-26T15:59:39.595816029Z node:internal/modules/cjs/loader:1215
+2025-09-26T15:59:39.59584345Z   throw err;
+2025-09-26T15:59:39.595895273Z   ^
+2025-09-26T15:59:39.595899953Z 
+2025-09-26T15:59:39.595902683Z Error: Cannot find module '/opt/render/project/src/dist/index.js'
+2025-09-26T15:59:39.595905103Z     at Module._resolveFilename (node:internal/modules/cjs/loader:1212:15)
+2025-09-26T15:59:39.595908184Z     at Module._load (node:internal/modules/cjs/loader:1043:27)
+2025-09-26T15:59:39.595910884Z     at Function.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:164:12)
+2025-09-26T15:59:39.595914294Z     at node:internal/main/run_main_module:28:49 {
+2025-09-26T15:59:39.595917104Z   code: 'MODULE_NOT_FOUND',
+2025-09-26T15:59:39.595919744Z   requireStack: []
+2025-09-26T15:59:39.595921974Z }
+2025-09-26T15:59:39.595923915Z 
+2025-09-26T15:59:39.595926065Z Node.js v20.19.0
