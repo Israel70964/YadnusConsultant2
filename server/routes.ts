@@ -35,6 +35,19 @@ const upload = multer({
   },
 });
 
+// Helper function to get user ID from different auth systems
+function getUserId(user: any): string | null {
+  // For Replit auth
+  if (user?.claims?.sub) {
+    return user.claims.sub;
+  }
+  // For external auth
+  if (user?.id) {
+    return user.id;
+  }
+  return null;
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
   await setupAuth(app);
@@ -503,7 +516,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   app.post('/api/admin/campaigns', isAuthenticated, async (req, res) => {
     try {
-      const userId = req.user?.claims?.sub;
+      const userId = getUserId(req.user);
       if (!userId) {
         return res.status(401).json({ message: "User not authenticated" });
       }
@@ -555,7 +568,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const { category = 'media', relatedId, relatedType } = req.body;
-      const userId = req.user?.id;
+      const userId = getUserId(req.user);
       
       if (!userId) {
         return res.status(401).json({ message: "User not authenticated" });
@@ -597,7 +610,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       }
       
       const { category = 'media', relatedId, relatedType } = req.body;
-      const userId = req.user?.id;
+      const userId = getUserId(req.user);
       
       if (!userId) {
         return res.status(401).json({ message: "User not authenticated" });
