@@ -1,0 +1,51 @@
+2025-09-26T16:12:43.223801604Z ==> Cloning from https://github.com/Israel70964/YadnusConsultant2
+2025-09-26T16:12:43.76084376Z ==> Checking out commit a18fbf0c0910864fb4f943ab2f1920d6a15cc542 in branch main
+2025-09-26T16:12:46.316718433Z ==> Using Node.js version 20.19.0 via /opt/render/project/src/.nvmrc
+2025-09-26T16:12:46.342100205Z ==> Docs on specifying a Node.js version: https://render.com/docs/node-version
+2025-09-26T16:12:48.186731363Z ==> Running build command 'npm install && npm run build'...
+2025-09-26T16:13:03.883632471Z 
+2025-09-26T16:13:03.883658421Z added 549 packages, and audited 550 packages in 16s
+2025-09-26T16:13:03.883670442Z 
+2025-09-26T16:13:03.883689262Z 74 packages are looking for funding
+2025-09-26T16:13:03.883725263Z   run `npm fund` for details
+2025-09-26T16:13:03.903886217Z 
+2025-09-26T16:13:03.903903557Z 8 vulnerabilities (3 low, 5 moderate)
+2025-09-26T16:13:03.903907677Z 
+2025-09-26T16:13:03.903911648Z To address issues that do not require attention, run:
+2025-09-26T16:13:03.903915288Z   npm audit fix
+2025-09-26T16:13:03.903918658Z 
+2025-09-26T16:13:03.903922108Z To address all issues (including breaking changes), run:
+2025-09-26T16:13:03.903926168Z   npm audit fix --force
+2025-09-26T16:13:03.903929418Z 
+2025-09-26T16:13:03.903933598Z Run `npm audit` for details.
+2025-09-26T16:13:04.094682071Z 
+2025-09-26T16:13:04.094705562Z > rest-express@1.0.0 build
+2025-09-26T16:13:04.094712782Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-09-26T16:13:04.094717362Z 
+2025-09-26T16:13:04.300056612Z vite v5.4.20 building for production...
+2025-09-26T16:13:04.346169812Z transforming...
+2025-09-26T16:13:04.644323856Z Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+2025-09-26T16:13:04.644344246Z   npx update-browserslist-db@latest
+2025-09-26T16:13:04.644351347Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-09-26T16:13:09.09715327Z ✓ 1864 modules transformed.
+2025-09-26T16:13:09.398282597Z rendering chunks...
+2025-09-26T16:13:09.406729754Z computing gzip size...
+2025-09-26T16:13:09.423485874Z ../dist/public/index.html                   1.95 kB │ gzip:   0.74 kB
+2025-09-26T16:13:09.423500205Z ../dist/public/assets/index-CjRS66et.css   84.05 kB │ gzip:  13.66 kB
+2025-09-26T16:13:09.423593217Z ../dist/public/assets/index-D3Oyctg0.js   674.52 kB │ gzip: 183.27 kB
+2025-09-26T16:13:09.423650549Z 
+2025-09-26T16:13:09.423656269Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-09-26T16:13:09.423660229Z - Using dynamic import() to code-split the application
+2025-09-26T16:13:09.423664159Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-09-26T16:13:09.423667629Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-09-26T16:13:09.423889044Z ✓ built in 5.10s
+2025-09-26T16:13:09.489172914Z 
+2025-09-26T16:13:09.489218005Z   dist/index.js  64.2kb
+2025-09-26T16:13:09.489227045Z 
+2025-09-26T16:13:09.489233035Z ⚡ Done in 6ms
+2025-09-26T16:13:16.606670496Z ==> Uploading build...
+2025-09-26T16:13:32.238876211Z ==> Uploaded in 5.9s. Compression took 9.7s
+2025-09-26T16:13:32.313264293Z ==> Build successful 🎉
+2025-09-26T16:14:16.093333775Z ==> Deploying...
+2025-09-26T16:14:56.719164919Z ==> Exited with status 1
+2025-09-26T16:14:56.733157949Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
