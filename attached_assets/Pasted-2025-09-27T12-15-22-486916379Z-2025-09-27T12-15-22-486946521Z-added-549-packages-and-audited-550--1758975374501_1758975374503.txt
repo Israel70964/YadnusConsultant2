@@ -1,0 +1,45 @@
+2025-09-27T12:15:22.486916379Z 
+2025-09-27T12:15:22.486946521Z added 549 packages, and audited 550 packages in 9s
+2025-09-27T12:15:22.486959842Z 
+2025-09-27T12:15:22.486977853Z 74 packages are looking for funding
+2025-09-27T12:15:22.486992874Z   run `npm fund` for details
+2025-09-27T12:15:22.510569059Z 
+2025-09-27T12:15:22.51059008Z 8 vulnerabilities (3 low, 5 moderate)
+2025-09-27T12:15:22.51059485Z 
+2025-09-27T12:15:22.510600011Z To address issues that do not require attention, run:
+2025-09-27T12:15:22.510604061Z   npm audit fix
+2025-09-27T12:15:22.510607931Z 
+2025-09-27T12:15:22.510612391Z To address all issues (including breaking changes), run:
+2025-09-27T12:15:22.510617232Z   npm audit fix --force
+2025-09-27T12:15:22.510620792Z 
+2025-09-27T12:15:22.510626562Z Run `npm audit` for details.
+2025-09-27T12:15:22.655149252Z 
+2025-09-27T12:15:22.655169133Z > rest-express@1.0.0 build
+2025-09-27T12:15:22.655174313Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-09-27T12:15:22.655181554Z 
+2025-09-27T12:15:22.832162043Z vite v5.4.20 building for production...
+2025-09-27T12:15:22.882109595Z transforming...
+2025-09-27T12:15:23.133208407Z Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+2025-09-27T12:15:23.133232738Z   npx update-browserslist-db@latest
+2025-09-27T12:15:23.133238058Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-09-27T12:15:27.201113823Z ✓ 1864 modules transformed.
+2025-09-27T12:15:27.493441292Z rendering chunks...
+2025-09-27T12:15:27.50203927Z computing gzip size...
+2025-09-27T12:15:27.518358405Z ../dist/public/index.html                   1.95 kB │ gzip:   0.74 kB
+2025-09-27T12:15:27.51843448Z ../dist/public/assets/index-CjRS66et.css   84.05 kB │ gzip:  13.66 kB
+2025-09-27T12:15:27.518500983Z ../dist/public/assets/index-Cy071N7s.js   674.62 kB │ gzip: 183.30 kB
+2025-09-27T12:15:27.518576178Z 
+2025-09-27T12:15:27.518582778Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-09-27T12:15:27.518587208Z - Using dynamic import() to code-split the application
+2025-09-27T12:15:27.518591499Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-09-27T12:15:27.518595589Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-09-27T12:15:27.51878452Z ✓ built in 4.67s
+2025-09-27T12:15:27.584815574Z ✘ [ERROR] Unexpected "{"
+2025-09-27T12:15:27.584836535Z 
+2025-09-27T12:15:27.584840895Z     server/storage.ts:37:28:
+2025-09-27T12:15:27.584845465Z       37 │   export interface IStorage {
+2025-09-27T12:15:27.584864767Z          ╵                             ^
+2025-09-27T12:15:27.584867007Z 
+2025-09-27T12:15:27.585289371Z 1 error
+2025-09-27T12:15:27.600925417Z ==> Build failed 😞
+2025-09-27T12:15:27.600938548Z ==> Common ways to troubleshoot your deploy: https://render.com/docs/troubleshooting-deploys
