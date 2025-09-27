@@ -21,6 +21,18 @@ import {
 import multer from "multer";
 import path from "path";
 
+// Helper function to get user ID from different auth systems
+function getUserId(user: any): string | null {
+  // For Replit auth
+  if (user?.claims?.sub) {
+    return user.claims.sub;
+  }
+  // For external auth
+  if (user?.id) {
+    return user.id;
+  }
+  return null;
+}
 const upload = multer({
   storage: multer.diskStorage({
     destination: (req, file, cb) => {
