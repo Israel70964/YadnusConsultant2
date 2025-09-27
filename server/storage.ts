@@ -31,17 +31,11 @@ import { db } from "./db";
 import { eq, desc, and, ilike, or, sql, gte, lt } from "drizzle-orm";
 
 export interface IStorage {
-  // User operations (required for Replit Auth)
-  getUser(id: string): Promise<User | undefined>;
-  upsertUser(user: UpsertUser): Promise<User>;
-  export interface IStorage {
   // User operations (required for Replit Auth and username/password auth)
   getUser(id: string): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: UpsertUser): Promise<User>;
   upsertUser(user: UpsertUser): Promise<User>;
-
-  // ... rest of your existing methods stay the same
 
   // Blog operations
   getBlogPosts(published?: boolean): Promise<BlogPost[]>;
@@ -112,18 +106,19 @@ export class DatabaseStorage implements IStorage {
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user;
   }
-async getUserByUsername(username: string): Promise<User | undefined> {
-  const [user] = await db.select().from(users).where(eq(users.username, username));
-  return user;
-}
 
-async createUser(userData: UpsertUser): Promise<User> {
-  const [user] = await db
-    .insert(users)
-    .values(userData)
-    .returning();
-  return user;
-}
+  async getUserByUsername(username: string): Promise<User | undefined> {
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
+  }
+
+  async createUser(userData: UpsertUser): Promise<User> {
+    const [user] = await db
+      .insert(users)
+      .values(userData)
+      .returning();
+    return user;
+  }
 
   async upsertUser(userData: UpsertUser): Promise<User> {
     const [user] = await db
@@ -143,9 +138,11 @@ async createUser(userData: UpsertUser): Promise<User> {
   // Blog operations
   async getBlogPosts(published?: boolean): Promise<BlogPost[]> {
     const query = db.select().from(blogPosts);
+    
     if (published !== undefined) {
       query.where(eq(blogPosts.published, published));
     }
+    
     return await query.orderBy(desc(blogPosts.createdAt));
   }
 
@@ -159,18 +156,18 @@ async createUser(userData: UpsertUser): Promise<User> {
     return post;
   }
 
-  async createBlogPost(post: InsertBlogPost): Promise<BlogPost> {
-    const [newPost] = await db.insert(blogPosts).values(post).returning();
-    return newPost;
+  async createBlogPost(postData: InsertBlogPost): Promise<BlogPost> {
+    const [post] = await db.insert(blogPosts).values(postData).returning();
+    return post;
   }
 
-  async updateBlogPost(id: string, post: Partial<InsertBlogPost>): Promise<BlogPost> {
-    const [updatedPost] = await db
+  async updateBlogPost(id: string, postData: Partial<InsertBlogPost>): Promise<BlogPost> {
+    const [post] = await db
       .update(blogPosts)
-      .set({ ...post, updatedAt: new Date() })
+      .set({ ...postData, updatedAt: new Date() })
       .where(eq(blogPosts.id, id))
       .returning();
-    return updatedPost;
+    return post;
   }
 
   async deleteBlogPost(id: string): Promise<void> {
@@ -187,7 +184,7 @@ async createUser(userData: UpsertUser): Promise<User> {
           or(
             ilike(blogPosts.title, `%${query}%`),
             ilike(blogPosts.content, `%${query}%`),
-            ilike(blogPosts.excerpt, `%${query}%`)
+            sql`${blogPosts.tags} && ARRAY[${query}]::text[]`
           )
         )
       )
@@ -197,9 +194,11 @@ async createUser(userData: UpsertUser): Promise<User> {
   // Project operations
   async getProjects(featured?: boolean): Promise<Project[]> {
     const query = db.select().from(projects);
+    
     if (featured !== undefined) {
       query.where(eq(projects.featured, featured));
     }
+    
     return await query.orderBy(desc(projects.createdAt));
   }
 
@@ -208,18 +207,18 @@ async createUser(userData: UpsertUser): Promise<User> {
     return project;
   }
 
-  async createProject(project: InsertProject): Promise<Project> {
-    const [newProject] = await db.insert(projects).values(project).returning();
-    return newProject;
+  async createProject(projectData: InsertProject): Promise<Project> {
+    const [project] = await db.insert(projects).values(projectData).returning();
+    return project;
   }
 
-  async updateProject(id: string, project: Partial<InsertProject>): Promise<Project> {
-    const [updatedProject] = await db
+  async updateProject(id: string, projectData: Partial<InsertProject>): Promise<Project> {
+    const [project] = await db
       .update(projects)
-      .set({ ...project, updatedAt: new Date() })
+      .set({ ...projectData, updatedAt: new Date() })
       .where(eq(projects.id, id))
       .returning();
-    return updatedProject;
+    return project;
   }
 
   async deleteProject(id: string): Promise<void> {
@@ -232,20 +231,18 @@ async createUser(userData: UpsertUser): Promise<User> {
   }
 
   async getUpcomingWebinars(): Promise<Webinar[]> {
-    const now = new Date();
     return await db
       .select()
       .from(webinars)
-      .where(gte(webinars.date, now))
+      .where(gte(webinars.date, new Date()))
       .orderBy(webinars.date);
   }
 
   async getPastWebinars(): Promise<Webinar[]> {
-    const now = new Date();
     return await db
       .select()
       .from(webinars)
-      .where(lt(webinars.date, now))
+      .where(lt(webinars.date, new Date()))
       .orderBy(desc(webinars.date));
   }
 
@@ -254,18 +251,18 @@ async createUser(userData: UpsertUser): Promise<User> {
     return webinar;
   }
 
-  async createWebinar(webinar: InsertWebinar): Promise<Webinar> {
-    const [newWebinar] = await db.insert(webinars).values(webinar).returning();
-    return newWebinar;
+  async createWebinar(webinarData: InsertWebinar): Promise<Webinar> {
+    const [webinar] = await db.insert(webinars).values(webinarData).returning();
+    return webinar;
   }
 
-  async updateWebinar(id: string, webinar: Partial<InsertWebinar>): Promise<Webinar> {
-    const [updatedWebinar] = await db
+  async updateWebinar(id: string, webinarData: Partial<InsertWebinar>): Promise<Webinar> {
+    const [webinar] = await db
       .update(webinars)
-      .set({ ...webinar, updatedAt: new Date() })
+      .set({ ...webinarData, updatedAt: new Date() })
       .where(eq(webinars.id, id))
       .returning();
-    return updatedWebinar;
+    return webinar;
   }
 
   async deleteWebinar(id: string): Promise<void> {
@@ -282,15 +279,17 @@ async createUser(userData: UpsertUser): Promise<User> {
   // Submission operations
   async getSubmissions(type?: string): Promise<Submission[]> {
     const query = db.select().from(submissions);
+    
     if (type) {
       query.where(eq(submissions.type, type));
     }
+    
     return await query.orderBy(desc(submissions.createdAt));
   }
 
-  async createSubmission(submission: InsertSubmission): Promise<Submission> {
-    const [newSubmission] = await db.insert(submissions).values(submission).returning();
-    return newSubmission;
+  async createSubmission(submissionData: InsertSubmission): Promise<Submission> {
+    const [submission] = await db.insert(submissions).values(submissionData).returning();
+    return submission;
   }
 
   async deleteSubmission(id: string): Promise<void> {
@@ -299,27 +298,21 @@ async createUser(userData: UpsertUser): Promise<User> {
 
   // File operations
   async getFiles(category?: string, relatedId?: string): Promise<File[]> {
-    if (category && relatedId) {
-      return await db
-        .select()
-        .from(files)
-        .where(and(eq(files.category, category), eq(files.relatedId, relatedId)))
-        .orderBy(desc(files.createdAt));
-    } else if (category) {
-      return await db
-        .select()
-        .from(files)
-        .where(eq(files.category, category))
-        .orderBy(desc(files.createdAt));
-    } else if (relatedId) {
-      return await db
-        .select()
-        .from(files)
-        .where(eq(files.relatedId, relatedId))
-        .orderBy(desc(files.createdAt));
+    let query = db.select().from(files);
+    
+    const conditions = [];
+    if (category) {
+      conditions.push(eq(files.category, category));
+    }
+    if (relatedId) {
+      conditions.push(eq(files.relatedId, relatedId));
     }
     
-    return await db.select().from(files).orderBy(desc(files.createdAt));
+    if (conditions.length > 0) {
+      query = query.where(and(...conditions));
+    }
+    
+    return await query.orderBy(desc(files.createdAt));
   }
 
   async getFile(id: string): Promise<File | undefined> {
@@ -327,9 +320,9 @@ async createUser(userData: UpsertUser): Promise<User> {
     return file;
   }
 
-  async createFile(file: InsertFile): Promise<File> {
-    const [newFile] = await db.insert(files).values(file).returning();
-    return newFile;
+  async createFile(fileData: InsertFile): Promise<File> {
+    const [file] = await db.insert(files).values(fileData).returning();
+    return file;
   }
 
   async deleteFile(id: string): Promise<void> {
@@ -347,9 +340,11 @@ async createUser(userData: UpsertUser): Promise<User> {
   // Newsletter operations
   async getSubscribers(isActive?: boolean): Promise<Subscriber[]> {
     const query = db.select().from(subscribers);
+    
     if (isActive !== undefined) {
       query.where(eq(subscribers.isActive, isActive));
     }
+    
     return await query.orderBy(desc(subscribers.subscribedAt));
   }
 
@@ -363,18 +358,18 @@ async createUser(userData: UpsertUser): Promise<User> {
     return subscriber;
   }
 
-  async createSubscriber(subscriber: InsertSubscriber): Promise<Subscriber> {
-    const [newSubscriber] = await db.insert(subscribers).values(subscriber).returning();
-    return newSubscriber;
+  async createSubscriber(subscriberData: InsertSubscriber): Promise<Subscriber> {
+    const [subscriber] = await db.insert(subscribers).values(subscriberData).returning();
+    return subscriber;
   }
 
-  async updateSubscriber(id: string, subscriber: Partial<InsertSubscriber>): Promise<Subscriber> {
-    const [updatedSubscriber] = await db
+  async updateSubscriber(id: string, subscriberData: Partial<InsertSubscriber>): Promise<Subscriber> {
+    const [subscriber] = await db
       .update(subscribers)
-      .set(subscriber)
+      .set(subscriberData)
       .where(eq(subscribers.id, id))
       .returning();
-    return updatedSubscriber;
+    return subscriber;
   }
 
   async deleteSubscriber(id: string): Promise<void> {
@@ -384,16 +379,19 @@ async createUser(userData: UpsertUser): Promise<User> {
   async unsubscribeEmail(email: string): Promise<void> {
     await db
       .update(subscribers)
-      .set({ isActive: false, unsubscribedAt: new Date() })
+      .set({ 
+        isActive: false, 
+        unsubscribedAt: new Date() 
+      })
       .where(eq(subscribers.email, email));
   }
 
   async getSubscriberCount(): Promise<number> {
-    const [result] = await db
-      .select({ count: sql<number>`count(*)` })
+    const result = await db
+      .select({ count: sql`count(*)` })
       .from(subscribers)
       .where(eq(subscribers.isActive, true));
-    return result.count;
+    return Number(result[0]?.count || 0);
   }
 
   // Campaign operations
@@ -406,18 +404,18 @@ async createUser(userData: UpsertUser): Promise<User> {
     return campaign;
   }
 
-  async createCampaign(campaign: InsertCampaign): Promise<Campaign> {
-    const [newCampaign] = await db.insert(campaigns).values(campaign).returning();
-    return newCampaign;
+  async createCampaign(campaignData: InsertCampaign): Promise<Campaign> {
+    const [campaign] = await db.insert(campaigns).values(campaignData).returning();
+    return campaign;
   }
 
-  async updateCampaign(id: string, campaign: Partial<InsertCampaign>): Promise<Campaign> {
-    const [updatedCampaign] = await db
+  async updateCampaign(id: string, campaignData: Partial<InsertCampaign>): Promise<Campaign> {
+    const [campaign] = await db
       .update(campaigns)
-      .set({ ...campaign, updatedAt: new Date() })
+      .set({ ...campaignData, updatedAt: new Date() })
       .where(eq(campaigns.id, id))
       .returning();
-    return updatedCampaign;
+    return campaign;
   }
 
   async deleteCampaign(id: string): Promise<void> {
@@ -432,17 +430,20 @@ async createUser(userData: UpsertUser): Promise<User> {
       .orderBy(desc(campaigns.createdAt));
   }
 
-  async updateCampaignStats(id: string, stats: { sentCount?: number; openCount?: number; clickCount?: number; bounceCount?: number }): Promise<void> {
+  async updateCampaignStats(
+    id: string, 
+    stats: { sentCount?: number; openCount?: number; clickCount?: number; bounceCount?: number }
+  ): Promise<void> {
     await db
       .update(campaigns)
-      .set(stats)
+      .set({ ...stats, updatedAt: new Date() })
       .where(eq(campaigns.id, id));
   }
 
   // Campaign events operations
-  async createCampaignEvent(event: InsertCampaignEvent): Promise<CampaignEvent> {
-    const [newEvent] = await db.insert(campaignEvents).values(event).returning();
-    return newEvent;
+  async createCampaignEvent(eventData: InsertCampaignEvent): Promise<CampaignEvent> {
+    const [event] = await db.insert(campaignEvents).values(eventData).returning();
+    return event;
   }
 
   async getCampaignEvents(campaignId: string): Promise<CampaignEvent[]> {
@@ -456,27 +457,13 @@ async createUser(userData: UpsertUser): Promise<User> {
   async getCampaignAnalytics(campaignId: string): Promise<{ opens: number; clicks: number; bounces: number; unsubscribes: number }> {
     const events = await this.getCampaignEvents(campaignId);
     
-    const analytics = events.reduce(
-      (acc, event) => {
-        switch (event.eventType) {
-          case 'opened':
-            acc.opens++;
-            break;
-          case 'clicked':
-            acc.clicks++;
-            break;
-          case 'bounced':
-            acc.bounces++;
-            break;
-          case 'unsubscribed':
-            acc.unsubscribes++;
-            break;
-        }
-        return acc;
-      },
-      { opens: 0, clicks: 0, bounces: 0, unsubscribes: 0 }
-    );
-
+    const analytics = {
+      opens: events.filter(e => e.eventType === 'opened').length,
+      clicks: events.filter(e => e.eventType === 'clicked').length,
+      bounces: events.filter(e => e.eventType === 'bounced').length,
+      unsubscribes: events.filter(e => e.eventType === 'unsubscribed').length,
+    };
+    
     return analytics;
   }
 }
