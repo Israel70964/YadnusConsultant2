@@ -1,0 +1,680 @@
+2025-09-27T12:29:17.305983949Z 
+2025-09-27T12:29:17.305989149Z To address all issues (including breaking changes), run:
+2025-09-27T12:29:17.305994709Z   npm audit fix --force
+2025-09-27T12:29:17.305999739Z 
+2025-09-27T12:29:17.306006149Z Run `npm audit` for details.
+2025-09-27T12:29:17.445634663Z 
+2025-09-27T12:29:17.445660823Z > rest-express@1.0.0 build
+2025-09-27T12:29:17.445667443Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-09-27T12:29:17.445674213Z 
+2025-09-27T12:29:17.6363778Z vite v5.4.20 building for production...
+2025-09-27T12:29:17.681227007Z transforming...
+2025-09-27T12:29:18.002153972Z Browserslist: browsers data (caniuse-lite) is 11 months old. Please run:
+2025-09-27T12:29:18.002180153Z   npx update-browserslist-db@latest
+2025-09-27T12:29:18.002187803Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-09-27T12:29:22.457694462Z ✓ 1864 modules transformed.
+2025-09-27T12:29:22.785898455Z rendering chunks...
+2025-09-27T12:29:22.796916025Z computing gzip size...
+2025-09-27T12:29:22.814655382Z ../dist/public/index.html                   1.95 kB │ gzip:   0.74 kB
+2025-09-27T12:29:22.814678662Z ../dist/public/assets/index-CjRS66et.css   84.05 kB │ gzip:  13.66 kB
+2025-09-27T12:29:22.814766064Z ../dist/public/assets/index-Cy071N7s.js   674.62 kB │ gzip: 183.30 kB
+2025-09-27T12:29:22.814844346Z 
+2025-09-27T12:29:22.814856316Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-09-27T12:29:22.814861586Z - Using dynamic import() to code-split the application
+2025-09-27T12:29:22.814865956Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-09-27T12:29:22.814869926Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-09-27T12:29:22.815122192Z ✓ built in 5.16s
+2025-09-27T12:29:22.883341888Z 
+2025-09-27T12:29:22.883364719Z   dist/index.js  68.5kb
+2025-09-27T12:29:22.883368079Z 
+2025-09-27T12:29:22.883371059Z ⚡ Done in 7ms
+2025-09-27T12:29:25.378524371Z ==> Uploading build...
+2025-09-27T12:29:36.480151468Z ==> Uploaded in 6.6s. Compression took 4.5s
+2025-09-27T12:29:36.513792131Z ==> Build successful 🎉
+2025-09-27T12:29:40.971692051Z ==> Deploying...
+2025-09-27T12:30:01.982708966Z ==> Running 'npm start'
+2025-09-27T12:30:03.080240729Z 
+2025-09-27T12:30:03.080269709Z > rest-express@1.0.0 start
+2025-09-27T12:30:03.080275409Z > NODE_ENV=production node dist/index.js
+2025-09-27T12:30:03.08032018Z 
+2025-09-27T12:30:15.985835048Z Running in external environment - username/password auth enabled
+2025-09-27T12:30:16.076596728Z SENDGRID_API_KEY environment variable not set. Email functionality will be disabled.
+2025-09-27T12:30:16.180244532Z Setting up username/password authentication for external deployment
+2025-09-27T12:30:16.282345511Z 12:30:16 PM [express] serving on port 10000
+2025-09-27T12:30:21.663846968Z ==> Your service is live 🎉
+2025-09-27T12:30:21.70730934Z ==> 
+2025-09-27T12:30:21.737734114Z ==> ///////////////////////////////////////////////////////////
+2025-09-27T12:30:21.773519028Z ==> 
+2025-09-27T12:30:21.806336473Z ==> Available at your primary URL https://yadnus-consultant-portfolio-web.onrender.com
+2025-09-27T12:30:21.838137887Z ==> 
+2025-09-27T12:30:21.867395332Z ==> ///////////////////////////////////////////////////////////
+2025-09-27T12:30:59.839365029Z 12:30:59 PM [express] GET /api/auth/user 401 in 2ms :: {"message":"Unauthorized"}
+2025-09-27T12:31:00.474131759Z Error fetching posts: ErrorEvent {
+2025-09-27T12:31:00.474166029Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:31:00.474172799Z     _events: [Object: null prototype] {
+2025-09-27T12:31:00.474179249Z       error: [Function],
+2025-09-27T12:31:00.474184459Z       message: [Function],
+2025-09-27T12:31:00.474189809Z       close: [Function],
+2025-09-27T12:31:00.47419504Z       open: [Function]
+2025-09-27T12:31:00.47419974Z     },
+2025-09-27T12:31:00.474204829Z     _eventsCount: 4,
+2025-09-27T12:31:00.47421016Z     _maxListeners: undefined,
+2025-09-27T12:31:00.4742149Z     _binaryType: 'arraybuffer',
+2025-09-27T12:31:00.47421991Z     _closeCode: 1006,
+2025-09-27T12:31:00.47422507Z     _closeFrameReceived: false,
+2025-09-27T12:31:00.47424631Z     _closeFrameSent: false,
+2025-09-27T12:31:00.4742521Z     _closeMessage: <Buffer >,
+2025-09-27T12:31:00.4742574Z     _closeTimer: null,
+2025-09-27T12:31:00.47426198Z     _errorEmitted: true,
+2025-09-27T12:31:00.47426652Z     _extensions: {},
+2025-09-27T12:31:00.47427103Z     _paused: false,
+2025-09-27T12:31:00.4742754Z     _protocol: '',
+2025-09-27T12:31:00.474306661Z     _readyState: 3,
+2025-09-27T12:31:00.474313441Z     _receiver: null,
+2025-09-27T12:31:00.474318441Z     _sender: null,
+2025-09-27T12:31:00.474323161Z     _socket: null,
+2025-09-27T12:31:00.474327761Z     _bufferedAmount: 0,
+2025-09-27T12:31:00.474332321Z     _isServer: false,
+2025-09-27T12:31:00.474336771Z     _redirects: 0,
+2025-09-27T12:31:00.474341681Z     _autoPong: true,
+2025-09-27T12:31:00.474346491Z     _url: 'wss://undefined/v2',
+2025-09-27T12:31:00.474351121Z     _req: null,
+2025-09-27T12:31:00.474355651Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:31:00.474360501Z     [Symbol(kCapture)]: false
+2025-09-27T12:31:00.474365291Z   },
+2025-09-27T12:31:00.474369971Z   [Symbol(kType)]: 'error',
+2025-09-27T12:31:00.474376791Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:31:00.474382511Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:31:00.474387671Z     errno: -3008,
+2025-09-27T12:31:00.474392341Z     code: 'ENOTFOUND',
+2025-09-27T12:31:00.474397451Z     syscall: 'getaddrinfo',
+2025-09-27T12:31:00.474402611Z     hostname: 'undefined'
+2025-09-27T12:31:00.474408211Z   },
+2025-09-27T12:31:00.474413282Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:31:00.474416832Z }
+2025-09-27T12:31:00.476358821Z 12:31:00 PM [express] GET /api/posts 500 in 328ms :: {"message":"Failed to fetch posts"}
+2025-09-27T12:31:00.477156358Z Error fetching projects: ErrorEvent {
+2025-09-27T12:31:00.477167808Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:31:00.477173088Z     _events: [Object: null prototype] {
+2025-09-27T12:31:00.477177768Z       error: [Function],
+2025-09-27T12:31:00.477196698Z       message: [Function],
+2025-09-27T12:31:00.477200199Z       close: [Function],
+2025-09-27T12:31:00.477203249Z       open: [Function]
+2025-09-27T12:31:00.477206109Z     },
+2025-09-27T12:31:00.477209019Z     _eventsCount: 4,
+2025-09-27T12:31:00.477211779Z     _maxListeners: undefined,
+2025-09-27T12:31:00.477214589Z     _binaryType: 'arraybuffer',
+2025-09-27T12:31:00.477217499Z     _closeCode: 1006,
+2025-09-27T12:31:00.477220529Z     _closeFrameReceived: false,
+2025-09-27T12:31:00.477223219Z     _closeFrameSent: false,
+2025-09-27T12:31:00.477226199Z     _closeMessage: <Buffer >,
+2025-09-27T12:31:00.477229119Z     _closeTimer: null,
+2025-09-27T12:31:00.477231609Z     _errorEmitted: true,
+2025-09-27T12:31:00.477234109Z     _extensions: {},
+2025-09-27T12:31:00.477236779Z     _paused: false,
+2025-09-27T12:31:00.477239289Z     _protocol: '',
+2025-09-27T12:31:00.477241989Z     _readyState: 3,
+2025-09-27T12:31:00.477244649Z     _receiver: null,
+2025-09-27T12:31:00.477247799Z     _sender: null,
+2025-09-27T12:31:00.477250529Z     _socket: null,
+2025-09-27T12:31:00.477253039Z     _bufferedAmount: 0,
+2025-09-27T12:31:00.477255759Z     _isServer: false,
+2025-09-27T12:31:00.477258399Z     _redirects: 0,
+2025-09-27T12:31:00.477261399Z     _autoPong: true,
+2025-09-27T12:31:00.477263999Z     _url: 'wss://undefined/v2',
+2025-09-27T12:31:00.477266549Z     _req: null,
+2025-09-27T12:31:00.477269249Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:31:00.477271919Z     [Symbol(kCapture)]: false
+2025-09-27T12:31:00.477274669Z   },
+2025-09-27T12:31:00.4773128Z   [Symbol(kType)]: 'error',
+2025-09-27T12:31:00.47732164Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:31:00.47732506Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:31:00.47732772Z     errno: -3008,
+2025-09-27T12:31:00.47733052Z     code: 'ENOTFOUND',
+2025-09-27T12:31:00.47733343Z     syscall: 'getaddrinfo',
+2025-09-27T12:31:00.47733616Z     hostname: 'undefined'
+2025-09-27T12:31:00.4773392Z   },
+2025-09-27T12:31:00.47734226Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:31:00.4773455Z }
+2025-09-27T12:31:00.477837745Z 12:31:00 PM [express] GET /api/projects 500 in 103ms :: {"message":"Failed to fetch projects"}
+2025-09-27T12:31:00.479446Z Error fetching upcoming webinars: ErrorEvent {
+2025-09-27T12:31:00.47945784Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:31:00.47946078Z     _events: [Object: null prototype] {
+2025-09-27T12:31:00.479464711Z       error: [Function],
+2025-09-27T12:31:00.479467591Z       message: [Function],
+2025-09-27T12:31:00.479470281Z       close: [Function],
+2025-09-27T12:31:00.479472811Z       open: [Function]
+2025-09-27T12:31:00.479475541Z     },
+2025-09-27T12:31:00.479478241Z     _eventsCount: 4,
+2025-09-27T12:31:00.479481041Z     _maxListeners: undefined,
+2025-09-27T12:31:00.479483781Z     _binaryType: 'arraybuffer',
+2025-09-27T12:31:00.479486381Z     _closeCode: 1006,
+2025-09-27T12:31:00.479489141Z     _closeFrameReceived: false,
+2025-09-27T12:31:00.479491651Z     _closeFrameSent: false,
+2025-09-27T12:31:00.479494121Z     _closeMessage: <Buffer >,
+2025-09-27T12:31:00.479496431Z     _closeTimer: null,
+2025-09-27T12:31:00.479498861Z     _errorEmitted: true,
+2025-09-27T12:31:00.479501261Z     _extensions: {},
+2025-09-27T12:31:00.479503421Z     _paused: false,
+2025-09-27T12:31:00.479505931Z     _protocol: '',
+2025-09-27T12:31:00.479508371Z     _readyState: 3,
+2025-09-27T12:31:00.479510951Z     _receiver: null,
+2025-09-27T12:31:00.479523121Z     _sender: null,
+2025-09-27T12:31:00.479525991Z     _socket: null,
+2025-09-27T12:31:00.479528991Z     _bufferedAmount: 0,
+2025-09-27T12:31:00.479531621Z     _isServer: false,
+2025-09-27T12:31:00.479533971Z     _redirects: 0,
+2025-09-27T12:31:00.479536661Z     _autoPong: true,
+2025-09-27T12:31:00.479539221Z     _url: 'wss://undefined/v2',
+2025-09-27T12:31:00.479541601Z     _req: null,
+2025-09-27T12:31:00.479544161Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:31:00.479546741Z     [Symbol(kCapture)]: false
+2025-09-27T12:31:00.479549841Z   },
+2025-09-27T12:31:00.479554061Z   [Symbol(kType)]: 'error',
+2025-09-27T12:31:00.479556661Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:31:00.479559281Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:31:00.479561412Z     errno: -3008,
+2025-09-27T12:31:00.479563532Z     code: 'ENOTFOUND',
+2025-09-27T12:31:00.479565752Z     syscall: 'getaddrinfo',
+2025-09-27T12:31:00.479567782Z     hostname: 'undefined'
+2025-09-27T12:31:00.479569812Z   },
+2025-09-27T12:31:00.479572002Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:31:00.479574202Z }
+2025-09-27T12:31:00.480349039Z 12:31:00 PM [express] GET /api/webinars/upcoming 500 in 103ms :: {"message":"Failed to fetch upcoming…
+2025-09-27T12:31:00.490335466Z Error fetching past webinars: ErrorEvent {
+2025-09-27T12:31:00.490356776Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:31:00.490359866Z     _events: [Object: null prototype] {
+2025-09-27T12:31:00.490365316Z       error: [Function],
+2025-09-27T12:31:00.490367846Z       message: [Function],
+2025-09-27T12:31:00.490370416Z       close: [Function],
+2025-09-27T12:31:00.490372576Z       open: [Function]
+2025-09-27T12:31:00.490374966Z     },
+2025-09-27T12:31:00.490377566Z     _eventsCount: 4,
+2025-09-27T12:31:00.490380346Z     _maxListeners: undefined,
+2025-09-27T12:31:00.490382866Z     _binaryType: 'arraybuffer',
+2025-09-27T12:31:00.490385376Z     _closeCode: 1006,
+2025-09-27T12:31:00.490387626Z     _closeFrameReceived: false,
+2025-09-27T12:31:00.490389906Z     _closeFrameSent: false,
+2025-09-27T12:31:00.490392316Z     _closeMessage: <Buffer >,
+2025-09-27T12:31:00.490395206Z     _closeTimer: null,
+2025-09-27T12:31:00.490397697Z     _errorEmitted: true,
+2025-09-27T12:31:00.490399946Z     _extensions: {},
+2025-09-27T12:31:00.490402526Z     _paused: false,
+2025-09-27T12:31:00.490404757Z     _protocol: '',
+2025-09-27T12:31:00.490407137Z     _readyState: 3,
+2025-09-27T12:31:00.490409566Z     _receiver: null,
+2025-09-27T12:31:00.490412037Z     _sender: null,
+2025-09-27T12:31:00.490414386Z     _socket: null,
+2025-09-27T12:31:00.490416707Z     _bufferedAmount: 0,
+2025-09-27T12:31:00.490419027Z     _isServer: false,
+2025-09-27T12:31:00.490421397Z     _redirects: 0,
+2025-09-27T12:31:00.490423827Z     _autoPong: true,
+2025-09-27T12:31:00.490426077Z     _url: 'wss://undefined/v2',
+2025-09-27T12:31:00.490428437Z     _req: null,
+2025-09-27T12:31:00.490430827Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:31:00.490433197Z     [Symbol(kCapture)]: false
+2025-09-27T12:31:00.490435467Z   },
+2025-09-27T12:31:00.490437937Z   [Symbol(kType)]: 'error',
+2025-09-27T12:31:00.490441267Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:31:00.490444067Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:31:00.490446597Z     errno: -3008,
+2025-09-27T12:31:00.490448807Z     code: 'ENOTFOUND',
+2025-09-27T12:31:00.490463307Z     syscall: 'getaddrinfo',
+2025-09-27T12:31:00.490465637Z     hostname: 'undefined'
+2025-09-27T12:31:00.490468177Z   },
+2025-09-27T12:31:00.490470867Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:31:00.490473197Z }
+2025-09-27T12:31:00.491089763Z 12:31:00 PM [express] GET /api/webinars/past 500 in 5ms :: {"message":"Failed to fetch past webinars"}
+2025-09-27T12:33:06.323112162Z 12:33:06 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:33:20.242564722Z 12:33:20 PM [express] GET /api/auth/user 401 in 2ms :: {"message":"Unauthorized"}
+2025-09-27T12:33:20.275047377Z Error fetching webinars: ErrorEvent {
+2025-09-27T12:33:20.275075197Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:33:20.275080457Z     _events: [Object: null prototype] {
+2025-09-27T12:33:20.275085247Z       error: [Function],
+2025-09-27T12:33:20.275089537Z       message: [Function],
+2025-09-27T12:33:20.275093807Z       close: [Function],
+2025-09-27T12:33:20.275098247Z       open: [Function]
+2025-09-27T12:33:20.275102807Z     },
+2025-09-27T12:33:20.275107417Z     _eventsCount: 4,
+2025-09-27T12:33:20.275111767Z     _maxListeners: undefined,
+2025-09-27T12:33:20.275116197Z     _binaryType: 'arraybuffer',
+2025-09-27T12:33:20.275120357Z     _closeCode: 1006,
+2025-09-27T12:33:20.275124277Z     _closeFrameReceived: false,
+2025-09-27T12:33:20.275128668Z     _closeFrameSent: false,
+2025-09-27T12:33:20.275132877Z     _closeMessage: <Buffer >,
+2025-09-27T12:33:20.275137168Z     _closeTimer: null,
+2025-09-27T12:33:20.275141238Z     _errorEmitted: true,
+2025-09-27T12:33:20.275145388Z     _extensions: {},
+2025-09-27T12:33:20.275149408Z     _paused: false,
+2025-09-27T12:33:20.275153228Z     _protocol: '',
+2025-09-27T12:33:20.275157728Z     _readyState: 3,
+2025-09-27T12:33:20.275161888Z     _receiver: null,
+2025-09-27T12:33:20.275166148Z     _sender: null,
+2025-09-27T12:33:20.275170248Z     _socket: null,
+2025-09-27T12:33:20.275174238Z     _bufferedAmount: 0,
+2025-09-27T12:33:20.275178148Z     _isServer: false,
+2025-09-27T12:33:20.275182308Z     _redirects: 0,
+2025-09-27T12:33:20.275186468Z     _autoPong: true,
+2025-09-27T12:33:20.275190388Z     _url: 'wss://undefined/v2',
+2025-09-27T12:33:20.275194748Z     _req: null,
+2025-09-27T12:33:20.275199028Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:33:20.275203108Z     [Symbol(kCapture)]: false
+2025-09-27T12:33:20.275207128Z   },
+2025-09-27T12:33:20.275211508Z   [Symbol(kType)]: 'error',
+2025-09-27T12:33:20.275216018Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:33:20.275220568Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:33:20.275224589Z     errno: -3008,
+2025-09-27T12:33:20.275231598Z     code: 'ENOTFOUND',
+2025-09-27T12:33:20.275235769Z     syscall: 'getaddrinfo',
+2025-09-27T12:33:20.275239938Z     hostname: 'undefined'
+2025-09-27T12:33:20.275243949Z   },
+2025-09-27T12:33:20.275248179Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:33:20.275252209Z }
+2025-09-27T12:33:20.275791114Z 12:33:20 PM [express] GET /api/webinars 500 in 23ms :: {"message":"Failed to fetch webinars"}
+2025-09-27T12:33:20.27638359Z Error fetching past webinars: ErrorEvent {
+2025-09-27T12:33:20.27639494Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:33:20.27639952Z     _events: [Object: null prototype] {
+2025-09-27T12:33:20.2764048Z       error: [Function],
+2025-09-27T12:33:20.27640892Z       message: [Function],
+2025-09-27T12:33:20.27641312Z       close: [Function],
+2025-09-27T12:33:20.27643247Z       open: [Function]
+2025-09-27T12:33:20.27643553Z     },
+2025-09-27T12:33:20.27643808Z     _eventsCount: 4,
+2025-09-27T12:33:20.27644098Z     _maxListeners: undefined,
+2025-09-27T12:33:20.27644377Z     _binaryType: 'arraybuffer',
+2025-09-27T12:33:20.27644627Z     _closeCode: 1006,
+2025-09-27T12:33:20.27644906Z     _closeFrameReceived: false,
+2025-09-27T12:33:20.27645158Z     _closeFrameSent: false,
+2025-09-27T12:33:20.27645457Z     _closeMessage: <Buffer >,
+2025-09-27T12:33:20.27645727Z     _closeTimer: null,
+2025-09-27T12:33:20.27645974Z     _errorEmitted: true,
+2025-09-27T12:33:20.27646231Z     _extensions: {},
+2025-09-27T12:33:20.27646496Z     _paused: false,
+2025-09-27T12:33:20.276467481Z     _protocol: '',
+2025-09-27T12:33:20.276471621Z     _readyState: 3,
+2025-09-27T12:33:20.27647443Z     _receiver: null,
+2025-09-27T12:33:20.27647719Z     _sender: null,
+2025-09-27T12:33:20.27647959Z     _socket: null,
+2025-09-27T12:33:20.276482321Z     _bufferedAmount: 0,
+2025-09-27T12:33:20.276485041Z     _isServer: false,
+2025-09-27T12:33:20.276487671Z     _redirects: 0,
+2025-09-27T12:33:20.276490111Z     _autoPong: true,
+2025-09-27T12:33:20.276492611Z     _url: 'wss://undefined/v2',
+2025-09-27T12:33:20.276495171Z     _req: null,
+2025-09-27T12:33:20.276497571Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:33:20.276500341Z     [Symbol(kCapture)]: false
+2025-09-27T12:33:20.276502821Z   },
+2025-09-27T12:33:20.276505381Z   [Symbol(kType)]: 'error',
+2025-09-27T12:33:20.276508501Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:33:20.276511781Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:33:20.276514351Z     errno: -3008,
+2025-09-27T12:33:20.276516821Z     code: 'ENOTFOUND',
+2025-09-27T12:33:20.276519301Z     syscall: 'getaddrinfo',
+2025-09-27T12:33:20.276521781Z     hostname: 'undefined'
+2025-09-27T12:33:20.276524291Z   },
+2025-09-27T12:33:20.276527181Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:33:20.276531951Z }
+2025-09-27T12:33:20.277046346Z 12:33:20 PM [express] GET /api/webinars/past 500 in 29ms :: {"message":"Failed to fetch past webinars…
+2025-09-27T12:33:20.277592611Z Error fetching upcoming webinars: ErrorEvent {
+2025-09-27T12:33:20.277608912Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:33:20.277612292Z     _events: [Object: null prototype] {
+2025-09-27T12:33:20.277615612Z       error: [Function],
+2025-09-27T12:33:20.277618232Z       message: [Function],
+2025-09-27T12:33:20.277620792Z       close: [Function],
+2025-09-27T12:33:20.277623512Z       open: [Function]
+2025-09-27T12:33:20.277626112Z     },
+2025-09-27T12:33:20.277628692Z     _eventsCount: 4,
+2025-09-27T12:33:20.277631332Z     _maxListeners: undefined,
+2025-09-27T12:33:20.277634142Z     _binaryType: 'arraybuffer',
+2025-09-27T12:33:20.277636792Z     _closeCode: 1006,
+2025-09-27T12:33:20.277639352Z     _closeFrameReceived: false,
+2025-09-27T12:33:20.277641862Z     _closeFrameSent: false,
+2025-09-27T12:33:20.277644252Z     _closeMessage: <Buffer >,
+2025-09-27T12:33:20.277646712Z     _closeTimer: null,
+2025-09-27T12:33:20.277649462Z     _errorEmitted: true,
+2025-09-27T12:33:20.277652042Z     _extensions: {},
+2025-09-27T12:33:20.277656612Z     _paused: false,
+2025-09-27T12:33:20.277659082Z     _protocol: '',
+2025-09-27T12:33:20.277661612Z     _readyState: 3,
+2025-09-27T12:33:20.277664302Z     _receiver: null,
+2025-09-27T12:33:20.277666892Z     _sender: null,
+2025-09-27T12:33:20.277669442Z     _socket: null,
+2025-09-27T12:33:20.277681672Z     _bufferedAmount: 0,
+2025-09-27T12:33:20.277684452Z     _isServer: false,
+2025-09-27T12:33:20.277687172Z     _redirects: 0,
+2025-09-27T12:33:20.277689882Z     _autoPong: true,
+2025-09-27T12:33:20.277692372Z     _url: 'wss://undefined/v2',
+2025-09-27T12:33:20.277694902Z     _req: null,
+2025-09-27T12:33:20.277697562Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:33:20.277700042Z     [Symbol(kCapture)]: false
+2025-09-27T12:33:20.277702582Z   },
+2025-09-27T12:33:20.277705042Z   [Symbol(kType)]: 'error',
+2025-09-27T12:33:20.277708362Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:33:20.277711422Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:33:20.277713993Z     errno: -3008,
+2025-09-27T12:33:20.277716542Z     code: 'ENOTFOUND',
+2025-09-27T12:33:20.277719022Z     syscall: 'getaddrinfo',
+2025-09-27T12:33:20.277721493Z     hostname: 'undefined'
+2025-09-27T12:33:20.277724063Z   },
+2025-09-27T12:33:20.277726783Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:33:20.277729273Z }
+2025-09-27T12:33:20.278341929Z 12:33:20 PM [express] GET /api/webinars/upcoming 500 in 21ms :: {"message":"Failed to fetch upcoming …
+2025-09-27T12:33:31.904006474Z 12:33:31 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:33:31.906613489Z Error fetching posts: ErrorEvent {
+2025-09-27T12:33:31.906632169Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:33:31.906636829Z     _events: [Object: null prototype] {
+2025-09-27T12:33:31.906641359Z       error: [Function],
+2025-09-27T12:33:31.906645829Z       message: [Function],
+2025-09-27T12:33:31.906663139Z       close: [Function],
+2025-09-27T12:33:31.906667659Z       open: [Function]
+2025-09-27T12:33:31.90667155Z     },
+2025-09-27T12:33:31.90667589Z     _eventsCount: 4,
+2025-09-27T12:33:31.90667982Z     _maxListeners: undefined,
+2025-09-27T12:33:31.90668406Z     _binaryType: 'arraybuffer',
+2025-09-27T12:33:31.90668794Z     _closeCode: 1006,
+2025-09-27T12:33:31.90669197Z     _closeFrameReceived: false,
+2025-09-27T12:33:31.90669616Z     _closeFrameSent: false,
+2025-09-27T12:33:31.90670044Z     _closeMessage: <Buffer >,
+2025-09-27T12:33:31.9067048Z     _closeTimer: null,
+2025-09-27T12:33:31.90670869Z     _errorEmitted: true,
+2025-09-27T12:33:31.9067127Z     _extensions: {},
+2025-09-27T12:33:31.90671689Z     _paused: false,
+2025-09-27T12:33:31.90672062Z     _protocol: '',
+2025-09-27T12:33:31.90672455Z     _readyState: 3,
+2025-09-27T12:33:31.90672838Z     _receiver: null,
+2025-09-27T12:33:31.90673218Z     _sender: null,
+2025-09-27T12:33:31.90673595Z     _socket: null,
+2025-09-27T12:33:31.90674011Z     _bufferedAmount: 0,
+2025-09-27T12:33:31.90674411Z     _isServer: false,
+2025-09-27T12:33:31.90674826Z     _redirects: 0,
+2025-09-27T12:33:31.90675238Z     _autoPong: true,
+2025-09-27T12:33:31.90675625Z     _url: 'wss://undefined/v2',
+2025-09-27T12:33:31.90676038Z     _req: null,
+2025-09-27T12:33:31.90676442Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:33:31.906768251Z     [Symbol(kCapture)]: false
+2025-09-27T12:33:31.906772311Z   },
+2025-09-27T12:33:31.90677622Z   [Symbol(kType)]: 'error',
+2025-09-27T12:33:31.906780581Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:33:31.906785261Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:33:31.906789711Z     errno: -3008,
+2025-09-27T12:33:31.906793701Z     code: 'ENOTFOUND',
+2025-09-27T12:33:31.906797731Z     syscall: 'getaddrinfo',
+2025-09-27T12:33:31.906815361Z     hostname: 'undefined'
+2025-09-27T12:33:31.906818181Z   },
+2025-09-27T12:33:31.906820731Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:33:31.906823351Z }
+2025-09-27T12:33:31.907505368Z 12:33:31 PM [express] GET /api/posts 500 in 8ms :: {"message":"Failed to fetch posts"}
+2025-09-27T12:33:46.064904605Z 12:33:46 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:33:46.074543728Z Error fetching projects: ErrorEvent {
+2025-09-27T12:33:46.074558168Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:33:46.074561808Z     _events: [Object: null prototype] {
+2025-09-27T12:33:46.074565028Z       error: [Function],
+2025-09-27T12:33:46.074567738Z       message: [Function],
+2025-09-27T12:33:46.074570578Z       close: [Function],
+2025-09-27T12:33:46.074573378Z       open: [Function]
+2025-09-27T12:33:46.074576218Z     },
+2025-09-27T12:33:46.074579089Z     _eventsCount: 4,
+2025-09-27T12:33:46.074582589Z     _maxListeners: undefined,
+2025-09-27T12:33:46.074587049Z     _binaryType: 'arraybuffer',
+2025-09-27T12:33:46.074591369Z     _closeCode: 1006,
+2025-09-27T12:33:46.074595859Z     _closeFrameReceived: false,
+2025-09-27T12:33:46.074601039Z     _closeFrameSent: false,
+2025-09-27T12:33:46.074605249Z     _closeMessage: <Buffer >,
+2025-09-27T12:33:46.074610029Z     _closeTimer: null,
+2025-09-27T12:33:46.074612839Z     _errorEmitted: true,
+2025-09-27T12:33:46.074615589Z     _extensions: {},
+2025-09-27T12:33:46.074618289Z     _paused: false,
+2025-09-27T12:33:46.074620969Z     _protocol: '',
+2025-09-27T12:33:46.074623839Z     _readyState: 3,
+2025-09-27T12:33:46.074626559Z     _receiver: null,
+2025-09-27T12:33:46.074629309Z     _sender: null,
+2025-09-27T12:33:46.074632049Z     _socket: null,
+2025-09-27T12:33:46.074634699Z     _bufferedAmount: 0,
+2025-09-27T12:33:46.074637429Z     _isServer: false,
+2025-09-27T12:33:46.074640089Z     _redirects: 0,
+2025-09-27T12:33:46.074642789Z     _autoPong: true,
+2025-09-27T12:33:46.074645519Z     _url: 'wss://undefined/v2',
+2025-09-27T12:33:46.074648269Z     _req: null,
+2025-09-27T12:33:46.074651149Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:33:46.074653889Z     [Symbol(kCapture)]: false
+2025-09-27T12:33:46.074656619Z   },
+2025-09-27T12:33:46.074659419Z   [Symbol(kType)]: 'error',
+2025-09-27T12:33:46.074662649Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:33:46.074666259Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:33:46.074668989Z     errno: -3008,
+2025-09-27T12:33:46.074671719Z     code: 'ENOTFOUND',
+2025-09-27T12:33:46.07467445Z     syscall: 'getaddrinfo',
+2025-09-27T12:33:46.074677179Z     hostname: 'undefined'
+2025-09-27T12:33:46.074679859Z   },
+2025-09-27T12:33:46.074684159Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:33:46.07468695Z }
+2025-09-27T12:33:46.075132384Z 12:33:46 PM [express] GET /api/projects 500 in 6ms :: {"message":"Failed to fetch projects"}
+2025-09-27T12:34:15.604735563Z 12:34:15 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:34:23.254150554Z 12:34:23 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:34:38.907628413Z Error fetching projects: ErrorEvent {
+2025-09-27T12:34:38.907659733Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:34:38.907664593Z     _events: [Object: null prototype] {
+2025-09-27T12:34:38.907669483Z       error: [Function],
+2025-09-27T12:34:38.907673133Z       message: [Function],
+2025-09-27T12:34:38.907710073Z       close: [Function],
+2025-09-27T12:34:38.907713844Z       open: [Function]
+2025-09-27T12:34:38.907716554Z     },
+2025-09-27T12:34:38.907719344Z     _eventsCount: 4,
+2025-09-27T12:34:38.907722024Z     _maxListeners: undefined,
+2025-09-27T12:34:38.907724834Z     _binaryType: 'arraybuffer',
+2025-09-27T12:34:38.907727574Z     _closeCode: 1006,
+2025-09-27T12:34:38.907730364Z     _closeFrameReceived: false,
+2025-09-27T12:34:38.907733174Z     _closeFrameSent: false,
+2025-09-27T12:34:38.907735984Z     _closeMessage: <Buffer >,
+2025-09-27T12:34:38.907738804Z     _closeTimer: null,
+2025-09-27T12:34:38.907741534Z     _errorEmitted: true,
+2025-09-27T12:34:38.907744144Z     _extensions: {},
+2025-09-27T12:34:38.907746934Z     _paused: false,
+2025-09-27T12:34:38.907749474Z     _protocol: '',
+2025-09-27T12:34:38.907751604Z     _readyState: 3,
+2025-09-27T12:34:38.907753534Z     _receiver: null,
+2025-09-27T12:34:38.907755514Z     _sender: null,
+2025-09-27T12:34:38.907757334Z     _socket: null,
+2025-09-27T12:34:38.907759324Z     _bufferedAmount: 0,
+2025-09-27T12:34:38.907761404Z     _isServer: false,
+2025-09-27T12:34:38.907763804Z     _redirects: 0,
+2025-09-27T12:34:38.907766484Z     _autoPong: true,
+2025-09-27T12:34:38.907768944Z     _url: 'wss://undefined/v2',
+2025-09-27T12:34:38.907771444Z     _req: null,
+2025-09-27T12:34:38.907774334Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:34:38.907777084Z     [Symbol(kCapture)]: false
+2025-09-27T12:34:38.907779614Z   },
+2025-09-27T12:34:38.907782204Z   [Symbol(kType)]: 'error',
+2025-09-27T12:34:38.907785264Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:34:38.907788874Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:34:38.907791974Z     errno: -3008,
+2025-09-27T12:34:38.907794714Z     code: 'ENOTFOUND',
+2025-09-27T12:34:38.907797484Z     syscall: 'getaddrinfo',
+2025-09-27T12:34:38.907800094Z     hostname: 'undefined'
+2025-09-27T12:34:38.907802785Z   },
+2025-09-27T12:34:38.907805594Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:34:38.907808294Z }
+2025-09-27T12:34:38.90838596Z 12:34:38 PM [express] GET /api/projects 500 in 11ms :: {"message":"Failed to fetch projects"}
+2025-09-27T12:34:38.930579045Z 12:34:38 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:34:43.39345779Z 12:34:43 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:34:55.352032287Z 12:34:55 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:35:09.246996922Z Error fetching past webinars: ErrorEvent {
+2025-09-27T12:35:09.247017982Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:35:09.247022722Z     _events: [Object: null prototype] {
+2025-09-27T12:35:09.247027742Z       error: [Function],
+2025-09-27T12:35:09.247032062Z       message: [Function],
+2025-09-27T12:35:09.247036772Z       close: [Function],
+2025-09-27T12:35:09.247053862Z       open: [Function]
+2025-09-27T12:35:09.247058792Z     },
+2025-09-27T12:35:09.247063072Z     _eventsCount: 4,
+2025-09-27T12:35:09.247067642Z     _maxListeners: undefined,
+2025-09-27T12:35:09.247071873Z     _binaryType: 'arraybuffer',
+2025-09-27T12:35:09.247076073Z     _closeCode: 1006,
+2025-09-27T12:35:09.247080422Z     _closeFrameReceived: false,
+2025-09-27T12:35:09.247084762Z     _closeFrameSent: false,
+2025-09-27T12:35:09.247088823Z     _closeMessage: <Buffer >,
+2025-09-27T12:35:09.247093033Z     _closeTimer: null,
+2025-09-27T12:35:09.247097223Z     _errorEmitted: true,
+2025-09-27T12:35:09.247110673Z     _extensions: {},
+2025-09-27T12:35:09.247113263Z     _paused: false,
+2025-09-27T12:35:09.247116023Z     _protocol: '',
+2025-09-27T12:35:09.247119033Z     _readyState: 3,
+2025-09-27T12:35:09.247121713Z     _receiver: null,
+2025-09-27T12:35:09.247124593Z     _sender: null,
+2025-09-27T12:35:09.247127223Z     _socket: null,
+2025-09-27T12:35:09.247130083Z     _bufferedAmount: 0,
+2025-09-27T12:35:09.247132733Z     _isServer: false,
+2025-09-27T12:35:09.247135453Z     _redirects: 0,
+2025-09-27T12:35:09.247138383Z     _autoPong: true,
+2025-09-27T12:35:09.247140923Z     _url: 'wss://undefined/v2',
+2025-09-27T12:35:09.247143563Z     _req: null,
+2025-09-27T12:35:09.247146053Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:35:09.247148923Z     [Symbol(kCapture)]: false
+2025-09-27T12:35:09.247151523Z   },
+2025-09-27T12:35:09.247154193Z   [Symbol(kType)]: 'error',
+2025-09-27T12:35:09.247157263Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:35:09.247160273Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:35:09.247162793Z     errno: -3008,
+2025-09-27T12:35:09.247165533Z     code: 'ENOTFOUND',
+2025-09-27T12:35:09.247168093Z     syscall: 'getaddrinfo',
+2025-09-27T12:35:09.247170754Z     hostname: 'undefined'
+2025-09-27T12:35:09.247173363Z   },
+2025-09-27T12:35:09.247176123Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:35:09.247178794Z }
+2025-09-27T12:35:09.247260544Z 12:35:09 PM [express] GET /api/webinars/past 500 in 12ms :: {"message":"Failed to fetch past webinars…
+2025-09-27T12:35:09.276548188Z Error fetching posts: ErrorEvent {
+2025-09-27T12:35:09.276564608Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:35:09.276567758Z     _events: [Object: null prototype] {
+2025-09-27T12:35:09.276570648Z       error: [Function],
+2025-09-27T12:35:09.276573178Z       message: [Function],
+2025-09-27T12:35:09.276575879Z       close: [Function],
+2025-09-27T12:35:09.276578748Z       open: [Function]
+2025-09-27T12:35:09.276581459Z     },
+2025-09-27T12:35:09.276584188Z     _eventsCount: 4,
+2025-09-27T12:35:09.276586868Z     _maxListeners: undefined,
+2025-09-27T12:35:09.276604069Z     _binaryType: 'arraybuffer',
+2025-09-27T12:35:09.276606849Z     _closeCode: 1006,
+2025-09-27T12:35:09.276610099Z     _closeFrameReceived: false,
+2025-09-27T12:35:09.276612499Z     _closeFrameSent: false,
+2025-09-27T12:35:09.276615599Z     _closeMessage: <Buffer >,
+2025-09-27T12:35:09.276618229Z     _closeTimer: null,
+2025-09-27T12:35:09.276620799Z     _errorEmitted: true,
+2025-09-27T12:35:09.276623359Z     _extensions: {},
+2025-09-27T12:35:09.276625909Z     _paused: false,
+2025-09-27T12:35:09.276628379Z     _protocol: '',
+2025-09-27T12:35:09.276631109Z     _readyState: 3,
+2025-09-27T12:35:09.276633569Z     _receiver: null,
+2025-09-27T12:35:09.276635849Z     _sender: null,
+2025-09-27T12:35:09.276638379Z     _socket: null,
+2025-09-27T12:35:09.276641019Z     _bufferedAmount: 0,
+2025-09-27T12:35:09.276644009Z     _isServer: false,
+2025-09-27T12:35:09.276646579Z     _redirects: 0,
+2025-09-27T12:35:09.276649299Z     _autoPong: true,
+2025-09-27T12:35:09.276652099Z     _url: 'wss://undefined/v2',
+2025-09-27T12:35:09.276654959Z     _req: null,
+2025-09-27T12:35:09.276657719Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:35:09.276660439Z     [Symbol(kCapture)]: false
+2025-09-27T12:35:09.276663029Z   },
+2025-09-27T12:35:09.276665709Z   [Symbol(kType)]: 'error',
+2025-09-27T12:35:09.276669379Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:35:09.276682029Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:35:09.2766851Z     errno: -3008,
+2025-09-27T12:35:09.27668752Z     code: 'ENOTFOUND',
+2025-09-27T12:35:09.2766898Z     syscall: 'getaddrinfo',
+2025-09-27T12:35:09.276692549Z     hostname: 'undefined'
+2025-09-27T12:35:09.2766952Z   },
+2025-09-27T12:35:09.27669813Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:35:09.27670072Z }
+2025-09-27T12:35:09.277453627Z 12:35:09 PM [express] GET /api/posts 500 in 29ms :: {"message":"Failed to fetch posts"}
+2025-09-27T12:35:09.278705459Z 12:35:09 PM [express] GET /api/auth/user 401 in 1ms :: {"message":"Unauthorized"}
+2025-09-27T12:35:09.279804819Z Error fetching projects: ErrorEvent {
+2025-09-27T12:35:09.27981411Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:35:09.27981691Z     _events: [Object: null prototype] {
+2025-09-27T12:35:09.27982038Z       error: [Function],
+2025-09-27T12:35:09.27982302Z       message: [Function],
+2025-09-27T12:35:09.27982543Z       close: [Function],
+2025-09-27T12:35:09.27982801Z       open: [Function]
+2025-09-27T12:35:09.27983058Z     },
+2025-09-27T12:35:09.27983303Z     _eventsCount: 4,
+2025-09-27T12:35:09.27983556Z     _maxListeners: undefined,
+2025-09-27T12:35:09.27983792Z     _binaryType: 'arraybuffer',
+2025-09-27T12:35:09.27984044Z     _closeCode: 1006,
+2025-09-27T12:35:09.27984319Z     _closeFrameReceived: false,
+2025-09-27T12:35:09.2798458Z     _closeFrameSent: false,
+2025-09-27T12:35:09.27984822Z     _closeMessage: <Buffer >,
+2025-09-27T12:35:09.279866Z     _closeTimer: null,
+2025-09-27T12:35:09.27986895Z     _errorEmitted: true,
+2025-09-27T12:35:09.27987147Z     _extensions: {},
+2025-09-27T12:35:09.27987374Z     _paused: false,
+2025-09-27T12:35:09.27987629Z     _protocol: '',
+2025-09-27T12:35:09.27987871Z     _readyState: 3,
+2025-09-27T12:35:09.27988107Z     _receiver: null,
+2025-09-27T12:35:09.27988359Z     _sender: null,
+2025-09-27T12:35:09.2798859Z     _socket: null,
+2025-09-27T12:35:09.27988841Z     _bufferedAmount: 0,
+2025-09-27T12:35:09.27989114Z     _isServer: false,
+2025-09-27T12:35:09.27989368Z     _redirects: 0,
+2025-09-27T12:35:09.279896151Z     _autoPong: true,
+2025-09-27T12:35:09.2798985Z     _url: 'wss://undefined/v2',
+2025-09-27T12:35:09.279901Z     _req: null,
+2025-09-27T12:35:09.2799034Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:35:09.279905991Z     [Symbol(kCapture)]: false
+2025-09-27T12:35:09.27990844Z   },
+2025-09-27T12:35:09.279910881Z   [Symbol(kType)]: 'error',
+2025-09-27T12:35:09.279913831Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:35:09.279917641Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:35:09.279920161Z     errno: -3008,
+2025-09-27T12:35:09.279922491Z     code: 'ENOTFOUND',
+2025-09-27T12:35:09.279924901Z     syscall: 'getaddrinfo',
+2025-09-27T12:35:09.279927221Z     hostname: 'undefined'
+2025-09-27T12:35:09.279929731Z   },
+2025-09-27T12:35:09.279932151Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:35:09.279934561Z }
+2025-09-27T12:35:09.28086037Z 12:35:09 PM [express] GET /api/projects 500 in 29ms :: {"message":"Failed to fetch projects"}
+2025-09-27T12:35:09.286584745Z Error fetching upcoming webinars: ErrorEvent {
+2025-09-27T12:35:09.286598945Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T12:35:09.286602556Z     _events: [Object: null prototype] {
+2025-09-27T12:35:09.286605545Z       error: [Function],
+2025-09-27T12:35:09.286618886Z       message: [Function],
+2025-09-27T12:35:09.286621846Z       close: [Function],
+2025-09-27T12:35:09.286624386Z       open: [Function]
+2025-09-27T12:35:09.286626946Z     },
+2025-09-27T12:35:09.286629466Z     _eventsCount: 4,
+2025-09-27T12:35:09.286632246Z     _maxListeners: undefined,
+2025-09-27T12:35:09.286634646Z     _binaryType: 'arraybuffer',
+2025-09-27T12:35:09.286637286Z     _closeCode: 1006,
+2025-09-27T12:35:09.286639986Z     _closeFrameReceived: false,
+2025-09-27T12:35:09.286642526Z     _closeFrameSent: false,
+2025-09-27T12:35:09.286645146Z     _closeMessage: <Buffer >,
+2025-09-27T12:35:09.286647736Z     _closeTimer: null,
+2025-09-27T12:35:09.286650296Z     _errorEmitted: true,
+2025-09-27T12:35:09.286653086Z     _extensions: {},
+2025-09-27T12:35:09.286655636Z     _paused: false,
+2025-09-27T12:35:09.286658346Z     _protocol: '',
+2025-09-27T12:35:09.286660866Z     _readyState: 3,
+2025-09-27T12:35:09.286663516Z     _receiver: null,
+2025-09-27T12:35:09.286666266Z     _sender: null,
+2025-09-27T12:35:09.286668686Z     _socket: null,
+2025-09-27T12:35:09.286671286Z     _bufferedAmount: 0,
+2025-09-27T12:35:09.286673856Z     _isServer: false,
+2025-09-27T12:35:09.286676316Z     _redirects: 0,
+2025-09-27T12:35:09.286678926Z     _autoPong: true,
+2025-09-27T12:35:09.286681456Z     _url: 'wss://undefined/v2',
+2025-09-27T12:35:09.286683906Z     _req: null,
+2025-09-27T12:35:09.286686496Z     [Symbol(shapeMode)]: false,
+2025-09-27T12:35:09.286689066Z     [Symbol(kCapture)]: false
+2025-09-27T12:35:09.286691686Z   },
+2025-09-27T12:35:09.286694186Z   [Symbol(kType)]: 'error',
+2025-09-27T12:35:09.286697377Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND undefined
+2025-09-27T12:35:09.286700646Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T12:35:09.286703426Z     errno: -3008,
+2025-09-27T12:35:09.286705806Z     code: 'ENOTFOUND',
+2025-09-27T12:35:09.286708617Z     syscall: 'getaddrinfo',
+2025-09-27T12:35:09.286711306Z     hostname: 'undefined'
+2025-09-27T12:35:09.286713977Z   },
+2025-09-27T12:35:09.286716667Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND undefined'
+2025-09-27T12:35:09.286719127Z }
+2025-09-27T12:35:09.374999893Z 12:35:09 PM [express] GET /api/webinars/upcoming 500 in 92ms :: {"message":"Failed to fetch upcoming …
+2025-09-27T12:35:12.67291575Z 12:35:12 PM [express] GET /api/login 405 in 1ms :: {"message":"Use POST method for login"}
+2025-09-27T12:35:22.347927507Z ==> Detected service running on port 10000
+2025-09-27T12:35:22.475423065Z ==> Docs on specifying a port: https://render.com/docs/web-services#port-binding
