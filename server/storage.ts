@@ -34,6 +34,14 @@ export interface IStorage {
   // User operations (required for Replit Auth)
   getUser(id: string): Promise<User | undefined>;
   upsertUser(user: UpsertUser): Promise<User>;
+  export interface IStorage {
+  // User operations (required for Replit Auth and username/password auth)
+  getUser(id: string): Promise<User | undefined>;
+  getUserByUsername(username: string): Promise<User | undefined>;
+  createUser(user: UpsertUser): Promise<User>;
+  upsertUser(user: UpsertUser): Promise<User>;
+
+  // ... rest of your existing methods stay the same
 
   // Blog operations
   getBlogPosts(published?: boolean): Promise<BlogPost[]>;
