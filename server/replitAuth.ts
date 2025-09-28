@@ -108,6 +108,7 @@ export async function setupAuth(app: Express) {
       verified(null, user);
     };
 
+    // Register strategies for all Replit domains
     for (const domain of process.env
       .REPLIT_DOMAINS!.split(",")) {
       const strategy = new Strategy(
@@ -121,6 +122,18 @@ export async function setupAuth(app: Express) {
       );
       passport.use(strategy);
     }
+
+    // Also register strategy for localhost for local development
+    const localhostStrategy = new Strategy(
+      {
+        name: `replitauth:localhost`,
+        config,
+        scope: "openid email profile offline_access",
+        callbackURL: `http://localhost:5000/api/callback`,
+      },
+      verify,
+    );
+    passport.use(localhostStrategy);
   } else {
     // Setup username/password authentication for external deployments
     console.log("Setting up username/password authentication for external deployment");
