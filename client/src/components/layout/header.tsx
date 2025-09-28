@@ -53,25 +53,26 @@ export default function Header() {
           
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            {isAuthenticated ? (
+            {/* Public Navigation - Always visible */}
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`transition-colors font-medium ${
+                  location === item.href
+                    ? "text-primary"
+                    : "text-muted-foreground hover:text-primary"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+            
+            {/* Admin Navigation - Only visible to authenticated users */}
+            {isAuthenticated && (
               <>
+                <div className="w-px h-4 bg-border" />
                 {adminNavigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`transition-colors font-medium ${
-                      location === item.href
-                        ? "text-primary"
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </>
-            ) : (
-              <>
-                {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
@@ -140,7 +141,8 @@ export default function Header() {
             <SheetContent side="right" className="w-80">
               <div className="py-6">
                 <div className="space-y-4">
-                  {(isAuthenticated ? adminNavigation : navigation).map((item) => (
+                  {/* Public Navigation - Always visible */}
+                  {navigation.map((item) => (
                     <Link
                       key={item.name}
                       href={item.href}
@@ -154,6 +156,30 @@ export default function Header() {
                       {item.name}
                     </Link>
                   ))}
+                  
+                  {/* Admin Navigation - Only visible to authenticated users */}
+                  {isAuthenticated && (
+                    <>
+                      <div className="border-t border-border my-4" />
+                      <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-4 mb-2">
+                        Admin Panel
+                      </div>
+                      {adminNavigation.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setIsOpen(false)}
+                          className={`block py-2 px-4 rounded-lg transition-colors ${
+                            location === item.href
+                              ? "bg-primary text-primary-foreground"
+                              : "text-foreground hover:bg-muted"
+                          }`}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </>
+                  )}
                 </div>
                 
                 {!isAuthenticated && (
