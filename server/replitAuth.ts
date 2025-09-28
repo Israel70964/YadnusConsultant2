@@ -12,7 +12,7 @@ import { scrypt, randomBytes, timingSafeEqual } from "crypto";
 import { promisify } from "util";
 
 // Check if we're in a Replit environment
-const isReplitEnvironment = !!process.env.REPLIT_DOMAINS;
+export const isReplitEnvironment = !!process.env.REPLIT_DOMAINS;
 
 if (!isReplitEnvironment) {
   console.log("Running in external environment - username/password auth enabled");

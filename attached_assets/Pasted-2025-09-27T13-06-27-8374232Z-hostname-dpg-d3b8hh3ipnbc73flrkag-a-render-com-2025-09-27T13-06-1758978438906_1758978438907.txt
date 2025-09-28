@@ -1,0 +1,50 @@
+2025-09-27T13:06:27.8374232Z     hostname: 'dpg-d3b8hh3ipnbc73flrkag-a.render.com'
+2025-09-27T13:06:27.83742536Z   },
+2025-09-27T13:06:27.83742762Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND dpg-d3b8hh3ipnbc73flrkag-a.render.com'
+2025-09-27T13:06:27.83742981Z }
+2025-09-27T13:06:27.83831369Z 1:06:27 PM [express] GET /api/webinars/upcoming 500 in 588ms :: {"message":"Failed to fetch upcoming…
+2025-09-27T13:06:28.037260282Z Error fetching posts: ErrorEvent {
+2025-09-27T13:06:28.037276982Z   [Symbol(kTarget)]: WebSocket {
+2025-09-27T13:06:28.037279982Z     _events: [Object: null prototype] {
+2025-09-27T13:06:28.037283293Z       error: [Function],
+2025-09-27T13:06:28.037285802Z       message: [Function],
+2025-09-27T13:06:28.037288102Z       close: [Function],
+2025-09-27T13:06:28.037290573Z       open: [Function]
+2025-09-27T13:06:28.037293363Z     },
+2025-09-27T13:06:28.037295803Z     _eventsCount: 4,
+2025-09-27T13:06:28.037298463Z     _maxListeners: undefined,
+2025-09-27T13:06:28.037300883Z     _binaryType: 'arraybuffer',
+2025-09-27T13:06:28.037303513Z     _closeCode: 1006,
+2025-09-27T13:06:28.037305793Z     _closeFrameReceived: false,
+2025-09-27T13:06:28.037308133Z     _closeFrameSent: false,
+2025-09-27T13:06:28.037310573Z     _closeMessage: <Buffer >,
+2025-09-27T13:06:28.037312883Z     _closeTimer: null,
+2025-09-27T13:06:28.037315163Z     _errorEmitted: true,
+2025-09-27T13:06:28.037317473Z     _extensions: {},
+2025-09-27T13:06:28.037331354Z     _paused: false,
+2025-09-27T13:06:28.037334024Z     _protocol: '',
+2025-09-27T13:06:28.037336304Z     _readyState: 3,
+2025-09-27T13:06:28.037338634Z     _receiver: null,
+2025-09-27T13:06:28.037340894Z     _sender: null,
+2025-09-27T13:06:28.037343314Z     _socket: null,
+2025-09-27T13:06:28.037345674Z     _bufferedAmount: 0,
+2025-09-27T13:06:28.037348044Z     _isServer: false,
+2025-09-27T13:06:28.037350394Z     _redirects: 0,
+2025-09-27T13:06:28.037352604Z     _autoPong: true,
+2025-09-27T13:06:28.037355894Z     _url: 'wss://dpg-d3b8hh3ipnbc73flrkag-a.render.com/v2',
+2025-09-27T13:06:28.037358334Z     _req: null,
+2025-09-27T13:06:28.037360774Z     [Symbol(shapeMode)]: false,
+2025-09-27T13:06:28.037363344Z     [Symbol(kCapture)]: false
+2025-09-27T13:06:28.037365684Z   },
+2025-09-27T13:06:28.037368044Z   [Symbol(kType)]: 'error',
+2025-09-27T13:06:28.037371375Z   [Symbol(kError)]: Error: getaddrinfo ENOTFOUND dpg-d3b8hh3ipnbc73flrkag-a.render.com
+2025-09-27T13:06:28.037374644Z       at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:120:26) {
+2025-09-27T13:06:28.037377024Z     errno: -3008,
+2025-09-27T13:06:28.037379425Z     code: 'ENOTFOUND',
+2025-09-27T13:06:28.037382035Z     syscall: 'getaddrinfo',
+2025-09-27T13:06:28.037384525Z     hostname: 'dpg-d3b8hh3ipnbc73flrkag-a.render.com'
+2025-09-27T13:06:28.037386905Z   },
+2025-09-27T13:06:28.037389395Z   [Symbol(kMessage)]: 'getaddrinfo ENOTFOUND dpg-d3b8hh3ipnbc73flrkag-a.render.com'
+2025-09-27T13:06:28.037391755Z }
+2025-09-27T13:06:28.038542731Z 1:06:28 PM [express] GET /api/posts 500 in 101ms :: {"message":"Failed to fetch posts"}
+2025-09-27T13:06:38.78918301Z 1:06:38 PM [express] GET /api/login 405 in 2ms :: {"message":"Use POST method for login"}

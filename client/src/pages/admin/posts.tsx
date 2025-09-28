@@ -65,7 +65,7 @@ export default function AdminPosts() {
 
   // Redirect to login if not authenticated
   if (!isAuthenticated) {
-    window.location.href = "/api/login";
+    window.location.href = "/login";
     return null;
   }
 
@@ -109,7 +109,7 @@ export default function AdminPosts() {
           variant: "destructive",
         });
         setTimeout(() => {
-          window.location.href = "/api/login";
+          window.location.href = "/login";
         }, 500);
         return;
       }
@@ -142,7 +142,7 @@ export default function AdminPosts() {
           variant: "destructive",
         });
         setTimeout(() => {
-          window.location.href = "/api/login";
+          window.location.href = "/login";
         }, 500);
         return;
       }
@@ -173,7 +173,7 @@ export default function AdminPosts() {
           variant: "destructive",
         });
         setTimeout(() => {
-          window.location.href = "/api/login";
+          window.location.href = "/login";
         }, 500);
         return;
       }

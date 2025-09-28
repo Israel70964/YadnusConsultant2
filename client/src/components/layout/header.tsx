@@ -123,13 +123,8 @@ export default function Header() {
                 <Button asChild data-testid="button-consultation">
                   <Link href="/contact">Schedule Consultation</Link>
                 </Button>
-                <Button
-                  onClick={() => window.location.href = '/api/login'}
-                  variant="outline"
-                  size="sm"
-                  data-testid="button-admin-login"
-                >
-                  Admin Login
+                <Button asChild variant="outline" size="sm" data-testid="button-admin-login">
+                  <Link href="/login">Admin Login</Link>
                 </Button>
               </>
             )}
@@ -185,7 +180,7 @@ export default function Header() {
                       <Button
                         onClick={() => {
                           setIsOpen(false);
-                          window.location.href = '/api/login';
+                          window.location.href = '/login';
                         }}
                         variant="outline"
                         className="w-full"

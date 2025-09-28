@@ -24,6 +24,7 @@ import AdminWebinars from "@/pages/admin/webinars";
 import AdminSubmissions from "@/pages/admin/submissions";
 import AdminFiles from "@/pages/admin/files";
 import AdminNewsletter from "@/pages/admin/newsletter";
+import LoginPage from "@/pages/login";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -41,6 +42,9 @@ function Router() {
       <Route path="/webinars" component={Webinars} />
       <Route path="/webinars/:id" component={WebinarDetail} />
       <Route path="/contact" component={Contact} />
+      
+      {/* Login route */}
+      <Route path="/login" component={LoginPage} />
       
       {/* Home route - different based on auth */}
       {isAuthenticated ? (

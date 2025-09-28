@@ -23,7 +23,7 @@ export default function AdminFiles() {
 
   // Redirect to login if not authenticated
   if (!isAuthenticated) {
-    window.location.href = "/api/login";
+    window.location.href = "/login";
     return null;
   }
 
