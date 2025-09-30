@@ -1,13 +1,28 @@
+databases:
+  - name: yadnus-production-db
+    databaseName: yadnus_db
+    user: yadnus_user
+    region: oregon
+    plan: free
+    
 services:
   - type: web
     name: yadnus-consultant
     runtime: node
     plan: free
     region: oregon
-    buildCommand: npm install && npm run build
+    buildCommand: npm install && npm run build && npm run db:push
     startCommand: npm start
     envVars:
       - key: NODE_ENV
         value: production
       - key: NODE_VERSION
         value: "20.19.0"
+      - key: DATABASE_URL
+        fromDatabase:
+          name: yadnus-production-db
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: SENDGRID_API_KEY
+        sync: false
