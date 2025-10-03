@@ -1,0 +1,233 @@
+2025-10-03T13:46:44.676623865Z 
+2025-10-03T13:46:44.676626716Z To address all issues (including breaking changes), run:
+2025-10-03T13:46:44.676630296Z   npm audit fix --force
+2025-10-03T13:46:44.676633026Z 
+2025-10-03T13:46:44.676636476Z Run `npm audit` for details.
+2025-10-03T13:46:44.819720718Z 
+2025-10-03T13:46:44.819770161Z > rest-express@1.0.0 build
+2025-10-03T13:46:44.819778071Z > vite build && esbuild server/index.ts --platform=node --packages=external --bundle --format=esm --outdir=dist
+2025-10-03T13:46:44.819787842Z 
+2025-10-03T13:46:45.036595369Z vite v5.4.20 building for production...
+2025-10-03T13:46:45.090929295Z transforming...
+2025-10-03T13:46:45.409841777Z Browserslist: browsers data (caniuse-lite) is 12 months old. Please run:
+2025-10-03T13:46:45.409859328Z   npx update-browserslist-db@latest
+2025-10-03T13:46:45.409864388Z   Why you should do it regularly: https://github.com/browserslist/update-db#readme
+2025-10-03T13:46:51.931030562Z ✓ 1866 modules transformed.
+2025-10-03T13:46:52.35087013Z rendering chunks...
+2025-10-03T13:46:52.388033102Z computing gzip size...
+2025-10-03T13:46:52.453629657Z ../dist/public/index.html                   1.95 kB │ gzip:   0.74 kB
+2025-10-03T13:46:52.456566493Z ../dist/public/assets/index-DDpE1GJN.css   84.18 kB │ gzip:  13.69 kB
+2025-10-03T13:46:52.456621487Z ../dist/public/assets/index-B6UKJp1p.js   679.16 kB │ gzip: 184.42 kB
+2025-10-03T13:46:52.456719123Z 
+2025-10-03T13:46:52.456727774Z (!) Some chunks are larger than 500 kB after minification. Consider:
+2025-10-03T13:46:52.456756395Z - Using dynamic import() to code-split the application
+2025-10-03T13:46:52.456767086Z - Use build.rollupOptions.output.manualChunks to improve chunking: https://rollupjs.org/configuration-options/#output-manualchunks
+2025-10-03T13:46:52.456771116Z - Adjust chunk size limit for this warning via build.chunkSizeWarningLimit.
+2025-10-03T13:46:52.457074637Z ✓ built in 7.39s
+2025-10-03T13:46:53.124363481Z 
+2025-10-03T13:46:53.124386602Z   dist/index.js  69.2kb
+2025-10-03T13:46:53.124390822Z 
+2025-10-03T13:46:53.124394793Z ⚡ Done in 127ms
+2025-10-03T13:46:53.709900734Z ==> Uploading build...
+2025-10-03T13:47:19.570918239Z ==> Uploaded in 5.8s. Compression took 20.0s
+2025-10-03T13:47:19.608114894Z ==> Build successful 🎉
+2025-10-03T13:47:23.169844423Z ==> Deploying...
+2025-10-03T13:47:40.664614193Z ==> Running 'npm start'
+2025-10-03T13:47:40.950749085Z 
+2025-10-03T13:47:40.950783435Z > rest-express@1.0.0 start
+2025-10-03T13:47:40.950786926Z > NODE_ENV=production node dist/index.js
+2025-10-03T13:47:40.950788756Z 
+2025-10-03T13:47:44.385494454Z Running in external environment - username/password auth enabled
+2025-10-03T13:47:44.388602673Z API key does not start with "SG.".
+2025-10-03T13:47:44.464886829Z Setting up username/password authentication for external deployment
+2025-10-03T13:47:44.487052999Z 1:47:44 PM [express] serving on port 10000
+2025-10-03T13:47:55.231922004Z ==> Your service is live 🎉
+2025-10-03T13:47:56.15936845Z ==> 
+2025-10-03T13:47:56.198066485Z ==> ///////////////////////////////////////////////////////////
+2025-10-03T13:47:56.234788892Z ==> 
+2025-10-03T13:47:56.268265708Z ==> Available at your primary URL https://yadnus-portfolio-web.onrender.com
+2025-10-03T13:47:56.314342112Z ==> 
+2025-10-03T13:47:56.346190049Z ==> ///////////////////////////////////////////////////////////
+2025-10-03T13:49:07.717595842Z 1:49:07 PM [express] GET /api/auth/user 401 in 3ms :: {"message":"Unauthorized"}
+2025-10-03T13:49:07.780145773Z Error fetching upcoming webinars: ErrorEvent {
+2025-10-03T13:49:07.780165584Z   [Symbol(kTarget)]: WebSocket {
+2025-10-03T13:49:07.780169964Z     _events: [Object: null prototype] {
+2025-10-03T13:49:07.780174474Z       error: [Function],
+2025-10-03T13:49:07.780178024Z       message: [Function],
+2025-10-03T13:49:07.780181504Z       close: [Function],
+2025-10-03T13:49:07.780185054Z       open: [Function]
+2025-10-03T13:49:07.780188594Z     },
+2025-10-03T13:49:07.780192294Z     _eventsCount: 4,
+2025-10-03T13:49:07.780195984Z     _maxListeners: undefined,
+2025-10-03T13:49:07.780199754Z     _binaryType: 'arraybuffer',
+2025-10-03T13:49:07.780203344Z     _closeCode: 1006,
+2025-10-03T13:49:07.780206874Z     _closeFrameReceived: false,
+2025-10-03T13:49:07.780210264Z     _closeFrameSent: false,
+2025-10-03T13:49:07.780213794Z     _closeMessage: <Buffer >,
+2025-10-03T13:49:07.780217305Z     _closeTimer: null,
+2025-10-03T13:49:07.780220654Z     _errorEmitted: true,
+2025-10-03T13:49:07.780224054Z     _extensions: {},
+2025-10-03T13:49:07.780227345Z     _paused: false,
+2025-10-03T13:49:07.780230755Z     _protocol: '',
+2025-10-03T13:49:07.780234275Z     _readyState: 3,
+2025-10-03T13:49:07.780243555Z     _receiver: null,
+2025-10-03T13:49:07.780247495Z     _sender: null,
+2025-10-03T13:49:07.780251075Z     _socket: null,
+2025-10-03T13:49:07.780254565Z     _bufferedAmount: 0,
+2025-10-03T13:49:07.780258665Z     _isServer: false,
+2025-10-03T13:49:07.780262095Z     _redirects: 0,
+2025-10-03T13:49:07.780265535Z     _autoPong: true,
+2025-10-03T13:49:07.780269005Z     _url: 'wss://dpg-d3b8hh3ipnbc73flrkag-a/v2',
+2025-10-03T13:49:07.780272815Z     _req: null,
+2025-10-03T13:49:07.780276175Z     [Symbol(shapeMode)]: false,
+2025-10-03T13:49:07.780279686Z     [Symbol(kCapture)]: false
+2025-10-03T13:49:07.780283126Z   },
+2025-10-03T13:49:07.780286576Z   [Symbol(kType)]: 'error',
+2025-10-03T13:49:07.780290626Z   [Symbol(kError)]: Error: connect ECONNREFUSED 10.230.168.55:443
+2025-10-03T13:49:07.780294226Z       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+2025-10-03T13:49:07.780297746Z     errno: -111,
+2025-10-03T13:49:07.780301286Z     code: 'ECONNREFUSED',
+2025-10-03T13:49:07.780305236Z     syscall: 'connect',
+2025-10-03T13:49:07.780308726Z     address: '10.230.168.55',
+2025-10-03T13:49:07.780312216Z     port: 443
+2025-10-03T13:49:07.780315706Z   },
+2025-10-03T13:49:07.780320226Z   [Symbol(kMessage)]: 'connect ECONNREFUSED 10.230.168.55:443'
+2025-10-03T13:49:07.780323687Z }
+2025-10-03T13:49:07.780966348Z 1:49:07 PM [express] GET /api/webinars/upcoming 500 in 61ms :: {"message":"Failed to fetch upcoming …
+2025-10-03T13:49:07.844981918Z Error fetching posts: ErrorEvent {
+2025-10-03T13:49:07.845004648Z   [Symbol(kTarget)]: WebSocket {
+2025-10-03T13:49:07.845009108Z     _events: [Object: null prototype] {
+2025-10-03T13:49:07.845031149Z       error: [Function],
+2025-10-03T13:49:07.845033799Z       message: [Function],
+2025-10-03T13:49:07.845036059Z       close: [Function],
+2025-10-03T13:49:07.845038389Z       open: [Function]
+2025-10-03T13:49:07.845040639Z     },
+2025-10-03T13:49:07.845042929Z     _eventsCount: 4,
+2025-10-03T13:49:07.845045129Z     _maxListeners: undefined,
+2025-10-03T13:49:07.845047499Z     _binaryType: 'arraybuffer',
+2025-10-03T13:49:07.845049809Z     _closeCode: 1006,
+2025-10-03T13:49:07.845051979Z     _closeFrameReceived: false,
+2025-10-03T13:49:07.845054139Z     _closeFrameSent: false,
+2025-10-03T13:49:07.845056259Z     _closeMessage: <Buffer >,
+2025-10-03T13:49:07.845058369Z     _closeTimer: null,
+2025-10-03T13:49:07.845060509Z     _errorEmitted: true,
+2025-10-03T13:49:07.845062519Z     _extensions: {},
+2025-10-03T13:49:07.845064589Z     _paused: false,
+2025-10-03T13:49:07.845067499Z     _protocol: '',
+2025-10-03T13:49:07.845069749Z     _readyState: 3,
+2025-10-03T13:49:07.845071839Z     _receiver: null,
+2025-10-03T13:49:07.84507431Z     _sender: null,
+2025-10-03T13:49:07.84507659Z     _socket: null,
+2025-10-03T13:49:07.845078739Z     _bufferedAmount: 0,
+2025-10-03T13:49:07.845080999Z     _isServer: false,
+2025-10-03T13:49:07.845083119Z     _redirects: 0,
+2025-10-03T13:49:07.84508522Z     _autoPong: true,
+2025-10-03T13:49:07.84508748Z     _url: 'wss://dpg-d3b8hh3ipnbc73flrkag-a/v2',
+2025-10-03T13:49:07.84508986Z     _req: null,
+2025-10-03T13:49:07.84509202Z     [Symbol(shapeMode)]: false,
+2025-10-03T13:49:07.84509416Z     [Symbol(kCapture)]: false
+2025-10-03T13:49:07.84509626Z   },
+2025-10-03T13:49:07.84509849Z   [Symbol(kType)]: 'error',
+2025-10-03T13:49:07.84510126Z   [Symbol(kError)]: Error: connect ECONNREFUSED 10.230.168.55:443
+2025-10-03T13:49:07.84510389Z       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+2025-10-03T13:49:07.84510611Z     errno: -111,
+2025-10-03T13:49:07.84510832Z     code: 'ECONNREFUSED',
+2025-10-03T13:49:07.84511044Z     syscall: 'connect',
+2025-10-03T13:49:07.84511264Z     address: '10.230.168.55',
+2025-10-03T13:49:07.84511476Z     port: 443
+2025-10-03T13:49:07.84511685Z   },
+2025-10-03T13:49:07.84512001Z   [Symbol(kMessage)]: 'connect ECONNREFUSED 10.230.168.55:443'
+2025-10-03T13:49:07.84512235Z }
+2025-10-03T13:49:07.845785833Z 1:49:07 PM [express] GET /api/posts 500 in 80ms :: {"message":"Failed to fetch posts"}
+2025-10-03T13:49:07.846820932Z Error fetching projects: ErrorEvent {
+2025-10-03T13:49:07.846829933Z   [Symbol(kTarget)]: WebSocket {
+2025-10-03T13:49:07.846832713Z     _events: [Object: null prototype] {
+2025-10-03T13:49:07.846835753Z       error: [Function],
+2025-10-03T13:49:07.846837893Z       message: [Function],
+2025-10-03T13:49:07.846840083Z       close: [Function],
+2025-10-03T13:49:07.846842203Z       open: [Function]
+2025-10-03T13:49:07.846844443Z     },
+2025-10-03T13:49:07.846846613Z     _eventsCount: 4,
+2025-10-03T13:49:07.846848683Z     _maxListeners: undefined,
+2025-10-03T13:49:07.846850773Z     _binaryType: 'arraybuffer',
+2025-10-03T13:49:07.846853003Z     _closeCode: 1006,
+2025-10-03T13:49:07.846855153Z     _closeFrameReceived: false,
+2025-10-03T13:49:07.846857173Z     _closeFrameSent: false,
+2025-10-03T13:49:07.846859223Z     _closeMessage: <Buffer >,
+2025-10-03T13:49:07.846861333Z     _closeTimer: null,
+2025-10-03T13:49:07.846863483Z     _errorEmitted: true,
+2025-10-03T13:49:07.846865493Z     _extensions: {},
+2025-10-03T13:49:07.846867533Z     _paused: false,
+2025-10-03T13:49:07.846869583Z     _protocol: '',
+2025-10-03T13:49:07.846881253Z     _readyState: 3,
+2025-10-03T13:49:07.846883674Z     _receiver: null,
+2025-10-03T13:49:07.846885834Z     _sender: null,
+2025-10-03T13:49:07.846887914Z     _socket: null,
+2025-10-03T13:49:07.846890194Z     _bufferedAmount: 0,
+2025-10-03T13:49:07.846892314Z     _isServer: false,
+2025-10-03T13:49:07.846894434Z     _redirects: 0,
+2025-10-03T13:49:07.846896464Z     _autoPong: true,
+2025-10-03T13:49:07.846898714Z     _url: 'wss://dpg-d3b8hh3ipnbc73flrkag-a/v2',
+2025-10-03T13:49:07.846900854Z     _req: null,
+2025-10-03T13:49:07.846902974Z     [Symbol(shapeMode)]: false,
+2025-10-03T13:49:07.846908314Z     [Symbol(kCapture)]: false
+2025-10-03T13:49:07.846910434Z   },
+2025-10-03T13:49:07.846912654Z   [Symbol(kType)]: 'error',
+2025-10-03T13:49:07.846915284Z   [Symbol(kError)]: Error: connect ECONNREFUSED 10.230.168.55:443
+2025-10-03T13:49:07.846917454Z       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+2025-10-03T13:49:07.846919534Z     errno: -111,
+2025-10-03T13:49:07.846921644Z     code: 'ECONNREFUSED',
+2025-10-03T13:49:07.846923774Z     syscall: 'connect',
+2025-10-03T13:49:07.846925864Z     address: '10.230.168.55',
+2025-10-03T13:49:07.846927905Z     port: 443
+2025-10-03T13:49:07.846929974Z   },
+2025-10-03T13:49:07.846933165Z   [Symbol(kMessage)]: 'connect ECONNREFUSED 10.230.168.55:443'
+2025-10-03T13:49:07.846935265Z }
+2025-10-03T13:49:07.847391123Z 1:49:07 PM [express] GET /api/projects 500 in 79ms :: {"message":"Failed to fetch projects"}
+2025-10-03T13:49:07.849989802Z Error fetching past webinars: ErrorEvent {
+2025-10-03T13:49:07.850002012Z   [Symbol(kTarget)]: WebSocket {
+2025-10-03T13:49:07.850004443Z     _events: [Object: null prototype] {
+2025-10-03T13:49:07.850006583Z       error: [Function],
+2025-10-03T13:49:07.850010443Z       message: [Function],
+2025-10-03T13:49:07.850012263Z       close: [Function],
+2025-10-03T13:49:07.850013973Z       open: [Function]
+2025-10-03T13:49:07.850015683Z     },
+2025-10-03T13:49:07.850017473Z     _eventsCount: 4,
+2025-10-03T13:49:07.850019123Z     _maxListeners: undefined,
+2025-10-03T13:49:07.850021213Z     _binaryType: 'arraybuffer',
+2025-10-03T13:49:07.850022973Z     _closeCode: 1006,
+2025-10-03T13:49:07.850024853Z     _closeFrameReceived: false,
+2025-10-03T13:49:07.850026493Z     _closeFrameSent: false,
+2025-10-03T13:49:07.850028163Z     _closeMessage: <Buffer >,
+2025-10-03T13:49:07.850029843Z     _closeTimer: null,
+2025-10-03T13:49:07.850031473Z     _errorEmitted: true,
+2025-10-03T13:49:07.850033103Z     _extensions: {},
+2025-10-03T13:49:07.850034843Z     _paused: false,
+2025-10-03T13:49:07.850036493Z     _protocol: '',
+2025-10-03T13:49:07.850038123Z     _readyState: 3,
+2025-10-03T13:49:07.850039763Z     _receiver: null,
+2025-10-03T13:49:07.850041463Z     _sender: null,
+2025-10-03T13:49:07.850043113Z     _socket: null,
+2025-10-03T13:49:07.850044743Z     _bufferedAmount: 0,
+2025-10-03T13:49:07.850046393Z     _isServer: false,
+2025-10-03T13:49:07.850049753Z     _redirects: 0,
+2025-10-03T13:49:07.850051433Z     _autoPong: true,
+2025-10-03T13:49:07.850053373Z     _url: 'wss://dpg-d3b8hh3ipnbc73flrkag-a/v2',
+2025-10-03T13:49:07.850055124Z     _req: null,
+2025-10-03T13:49:07.850056973Z     [Symbol(shapeMode)]: false,
+2025-10-03T13:49:07.850058673Z     [Symbol(kCapture)]: false
+2025-10-03T13:49:07.850060364Z   },
+2025-10-03T13:49:07.850062084Z   [Symbol(kType)]: 'error',
+2025-10-03T13:49:07.850064274Z   [Symbol(kError)]: Error: connect ECONNREFUSED 10.230.168.55:443
+2025-10-03T13:49:07.850073914Z       at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1611:16) {
+2025-10-03T13:49:07.850075874Z     errno: -111,
+2025-10-03T13:49:07.850077634Z     code: 'ECONNREFUSED',
+2025-10-03T13:49:07.850079354Z     syscall: 'connect',
+2025-10-03T13:49:07.850081094Z     address: '10.230.168.55',
+2025-10-03T13:49:07.850082854Z     port: 443
+2025-10-03T13:49:07.850084584Z   },
+2025-10-03T13:49:07.850086924Z   [Symbol(kMessage)]: 'connect ECONNREFUSED 10.230.168.55:443'
+2025-10-03T13:49:07.850088684Z }
+2025-10-03T13:49:07.850657645Z 1:49:07 PM [express] GET /api/webinars/past 500 in 79ms :: {"message":"Failed to fetch past webinars…
+2025-10-03T13:49:36.541973312Z 1:49:36 PM [express] GET /api/auth/config 304 in 1ms :: {"authMode":"external","isReplitEnvironment"…
+2025-10-03T13:49:36.543049962Z 1:49:36 PM [express] GET /api/auth/user 401 in 0ms :: {"message":"Unauthorized"}
