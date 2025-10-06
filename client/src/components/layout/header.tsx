@@ -51,42 +51,44 @@ export default function Header() {
             </div>
           </Link>
           
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {/* Public Navigation - Always visible */}
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className={`transition-colors font-medium ${
-                  location === item.href
-                    ? "text-primary"
-                    : "text-muted-foreground hover:text-primary"
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-            
-            {/* Admin Navigation - Only visible to authenticated users */}
-            {isAuthenticated && (
-              <>
-                <div className="w-px h-4 bg-border" />
-                {adminNavigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    href={item.href}
-                    className={`transition-colors font-medium ${
-                      location === item.href
-                        ? "text-primary"
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </>
-            )}
+          {/* Desktop Navigation - Scrollable on medium screens */}
+          <div className="hidden lg:flex items-center flex-1 mx-4 overflow-x-auto scrollbar-hide">
+            <div className="flex items-center space-x-8 min-w-max">
+              {/* Public Navigation - Always visible */}
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className={`transition-colors font-medium whitespace-nowrap ${
+                    location === item.href
+                      ? "text-primary"
+                      : "text-muted-foreground hover:text-primary"
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              {/* Admin Navigation - Only visible to authenticated users */}
+              {isAuthenticated && (
+                <>
+                  <div className="w-px h-4 bg-border" />
+                  {adminNavigation.map((item) => (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`transition-colors font-medium whitespace-nowrap ${
+                        location === item.href
+                          ? "text-primary"
+                          : "text-muted-foreground hover:text-primary"
+                      }`}
+                    >
+                      {item.name}
+                    </Link>
+                  ))}
+                </>
+              )}
+            </div>
           </div>
           
           {/* Social Icons & CTA */}
@@ -138,9 +140,9 @@ export default function Header() {
                 <Menu className="w-6 h-6" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-80 overflow-y-auto">
               <div className="py-6">
-                <div className="space-y-4">
+                <div className="space-y-4 max-h-[calc(100vh-8rem)] overflow-y-auto">
                   {/* Public Navigation - Always visible */}
                   {navigation.map((item) => (
                     <Link
