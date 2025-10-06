@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { useAuth } from "@/hooks/useAuth";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
 
 // Pages
 import Landing from "@/pages/landing";
@@ -53,18 +54,56 @@ function Router() {
         <Route path="/" component={Landing} />
       )}
       
-      {/* Admin routes - only when authenticated */}
-      {isAuthenticated && (
-        <>
-          <Route path="/admin" component={AdminDashboard} />
-          <Route path="/admin/posts" component={AdminPosts} />
-          <Route path="/admin/projects" component={AdminProjects} />
-          <Route path="/admin/webinars" component={AdminWebinars} />
-          <Route path="/admin/submissions" component={AdminSubmissions} />
-          <Route path="/admin/files" component={AdminFiles} />
-          <Route path="/admin/newsletter" component={AdminNewsletter} />
-        </>
-      )}
+      {/* Admin routes - protected with ProtectedRoute component */}
+      <Route path="/admin">
+        {() => (
+          <ProtectedRoute>
+            <AdminDashboard />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/posts">
+        {() => (
+          <ProtectedRoute>
+            <AdminPosts />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/projects">
+        {() => (
+          <ProtectedRoute>
+            <AdminProjects />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/webinars">
+        {() => (
+          <ProtectedRoute>
+            <AdminWebinars />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/submissions">
+        {() => (
+          <ProtectedRoute>
+            <AdminSubmissions />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/files">
+        {() => (
+          <ProtectedRoute>
+            <AdminFiles />
+          </ProtectedRoute>
+        )}
+      </Route>
+      <Route path="/admin/newsletter">
+        {() => (
+          <ProtectedRoute>
+            <AdminNewsletter />
+          </ProtectedRoute>
+        )}
+      </Route>
       
       <Route component={NotFound} />
     </Switch>
