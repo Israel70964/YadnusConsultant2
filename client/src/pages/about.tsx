@@ -3,6 +3,9 @@ import Footer from "@/components/layout/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Award, Target, Heart, Building, Leaf, Globe } from "lucide-react";
+import missionImg from "@assets/stock_images/town_planning_urban__c6b36ecb.jpg";
+import architectureImg from "@assets/stock_images/modern_architecture__2168f8eb.jpg";
+import teamImg from "@assets/stock_images/office_meeting_prese_3bf44d4c.jpg";
 
 export default function About() {
   const values = [
@@ -94,11 +97,18 @@ export default function About() {
                 We believe that well-planned communities are the foundation of a sustainable future. Our mission is to work collaboratively with clients, stakeholders, and communities to create spaces that not only meet today's needs but also prepare for tomorrow's challenges.
               </p>
             </div>
-            <div className="bg-primary/5 rounded-xl p-8">
-              <h3 className="text-xl font-semibold text-foreground mb-4">Our Vision</h3>
-              <p className="text-muted-foreground">
-                To be the leading town planning and construction consulting firm recognized for creating innovative, sustainable, and community-centered developments that serve as models for future urban growth.
-              </p>
+            <div className="relative">
+              <img
+                src={missionImg}
+                alt="Urban planning blueprints"
+                className="rounded-xl shadow-lg w-full h-auto"
+              />
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8 rounded-b-xl">
+                <h3 className="text-xl font-semibold text-white mb-2">Our Vision</h3>
+                <p className="text-white/90 text-sm">
+                  To be the leading town planning and construction consulting firm recognized for creating innovative, sustainable, and community-centered developments that serve as models for future urban growth.
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -138,6 +148,14 @@ export default function About() {
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Meet the experienced professionals who bring your vision to life.
             </p>
+          </div>
+
+          <div className="mb-12 rounded-xl overflow-hidden">
+            <img
+              src={teamImg}
+              alt="Professional consultation team"
+              className="w-full h-96 object-cover"
+            />
           </div>
           
           <div className="grid md:grid-cols-3 gap-8">

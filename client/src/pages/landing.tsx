@@ -24,6 +24,9 @@ import {
   Play,
 } from "lucide-react";
 import type { Project, BlogPost, Webinar } from "@shared/schema";
+import townPlanningImg from "@assets/stock_images/town_planning_urban__372a6021.jpg";
+import constructionImg from "@assets/stock_images/construction_site_bu_5a501201.jpg";
+import architectureImg from "@assets/stock_images/modern_architecture__06302b96.jpg";
 
 export default function Landing() {
   const { data: featuredProjects = [] } = useQuery<Project[]>({
@@ -64,7 +67,14 @@ export default function Landing() {
 
           <div className="grid lg:grid-cols-3 gap-8">
             {/* Service 1 */}
-            <Card className="card-hover">
+            <Card className="card-hover overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={townPlanningImg}
+                  alt="Town planning and urban development"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
               <CardContent className="p-8">
                 <div className="w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center mb-6">
                   <MapPin className="text-primary w-8 h-8" />
@@ -99,7 +109,14 @@ export default function Landing() {
             </Card>
 
             {/* Service 2 */}
-            <Card className="card-hover">
+            <Card className="card-hover overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={constructionImg}
+                  alt="Construction site management"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
               <CardContent className="p-8">
                 <div className="w-16 h-16 bg-secondary/10 rounded-lg flex items-center justify-center mb-6">
                   <HardHat className="text-secondary w-8 h-8" />
@@ -134,7 +151,14 @@ export default function Landing() {
             </Card>
 
             {/* Service 3 */}
-            <Card className="card-hover">
+            <Card className="card-hover overflow-hidden">
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={architectureImg}
+                  alt="Development consulting services"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                />
+              </div>
               <CardContent className="p-8">
                 <div className="w-16 h-16 bg-accent/10 rounded-lg flex items-center justify-center mb-6">
                   <UsersIcon className="text-accent w-8 h-8" />

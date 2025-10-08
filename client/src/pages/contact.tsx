@@ -18,6 +18,7 @@ import {
   Users
 } from "lucide-react";
 import { SiWhatsapp, SiX, SiInstagram, SiLinkedin } from "react-icons/si";
+import contactHeroImg from "@assets/stock_images/construction_site_bu_47df4ab7.jpg";
 
 export default function Contact() {
   const [activeTab, setActiveTab] = useState("contact");
@@ -96,27 +97,35 @@ export default function Contact() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={contactHeroImg}
+            alt="Construction consulting"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-black/60" />
+        </div>
+        <div className="relative container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Get In Touch
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Ready to start your next project? We're here to help bring your vision to life with expert planning and construction consulting.
             </p>
             <div className="grid md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">24h</div>
-                <div className="text-muted-foreground">Response Time</div>
+                <div className="text-3xl font-bold text-white mb-2">24h</div>
+                <div className="text-white/80">Response Time</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">Free</div>
-                <div className="text-muted-foreground">Initial Consultation</div>
+                <div className="text-3xl font-bold text-white mb-2">Free</div>
+                <div className="text-white/80">Initial Consultation</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary mb-2">15+</div>
-                <div className="text-muted-foreground">Years Experience</div>
+                <div className="text-3xl font-bold text-white mb-2">15+</div>
+                <div className="text-white/80">Years Experience</div>
               </div>
             </div>
           </div>

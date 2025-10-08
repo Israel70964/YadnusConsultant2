@@ -18,6 +18,10 @@ import {
   Target,
   ArrowRight 
 } from "lucide-react";
+import heroBg from "@assets/stock_images/modern_architecture__1dd46f40.jpg";
+import townPlanningImg from "@assets/stock_images/town_planning_urban__f692d963.jpg";
+import constructionImg from "@assets/stock_images/construction_site_bu_5aa0aa3f.jpg";
+import consultingImg from "@assets/stock_images/office_meeting_prese_9786d229.jpg";
 
 export default function Services() {
   const mainServices = [
@@ -26,21 +30,24 @@ export default function Services() {
       title: "Town Planning",
       description: "Strategic urban planning solutions that balance community needs with sustainable development practices and regulatory compliance.",
       features: ["Master Planning", "Zoning Analysis", "Environmental Assessment", "Community Engagement"],
-      color: "primary"
+      color: "primary",
+      image: townPlanningImg
     },
     {
       icon: <HardHat className="text-secondary w-8 h-8" />,
       title: "Construction Management",
       description: "Full-service construction oversight ensuring projects are delivered on time, within budget, and to the highest quality standards.",
       features: ["Project Management", "Quality Control", "Safety Compliance", "Cost Management"],
-      color: "secondary"
+      color: "secondary",
+      image: constructionImg
     },
     {
       icon: <Users className="text-accent w-8 h-8" />,
       title: "Development Consulting",
       description: "Expert advisory services for developers, municipalities, and organizations navigating complex planning and development challenges.",
       features: ["Feasibility Studies", "Permit Acquisition", "Stakeholder Relations", "Strategic Planning"],
-      color: "accent"
+      color: "accent",
+      image: consultingImg
     }
   ];
 
@@ -105,13 +112,21 @@ export default function Services() {
       <Header />
       
       {/* Hero Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-6">
+      <section className="relative py-32 overflow-hidden">
+        <div className="absolute inset-0">
+          <img
+            src={heroBg}
+            alt="Modern sustainable architecture"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50" />
+        </div>
+        <div className="relative container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+            <h1 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Our Expert Services
             </h1>
-            <p className="text-xl text-muted-foreground mb-8">
+            <p className="text-xl text-white/90 mb-8">
               Comprehensive town planning and construction consulting services designed to create sustainable, thriving communities that stand the test of time.
             </p>
             <Button asChild size="lg" data-testid="button-get-quote">
@@ -133,7 +148,14 @@ export default function Services() {
           
           <div className="grid lg:grid-cols-3 gap-8">
             {mainServices.map((service, index) => (
-              <Card key={index} className="card-hover" data-testid={`card-service-${index}`}>
+              <Card key={index} className="card-hover overflow-hidden" data-testid={`card-service-${index}`}>
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
+                  />
+                </div>
                 <CardContent className="p-8">
                   <div className={`w-16 h-16 bg-${service.color}/10 rounded-lg flex items-center justify-center mb-6`}>
                     {service.icon}
