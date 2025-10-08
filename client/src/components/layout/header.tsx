@@ -122,14 +122,9 @@ export default function Header() {
                 </Button>
               </div>
             ) : (
-              <>
-                <Button asChild data-testid="button-consultation">
-                  <Link href="/contact">Schedule Consultation</Link>
-                </Button>
-                <Button asChild variant="outline" size="sm" data-testid="button-admin-login">
-                  <Link href="/login">Admin Login</Link>
-                </Button>
-              </>
+              <Button asChild data-testid="button-consultation">
+                <Link href="/contact">Schedule Consultation</Link>
+              </Button>
             )}
           </div>
           
@@ -199,23 +194,11 @@ export default function Header() {
                         </a>
                       ))}
                     </div>
-                    <div className="space-y-3">
-                      <Button asChild className="w-full">
-                        <Link href="/contact" onClick={() => setIsOpen(false)}>
-                          Schedule Consultation
-                        </Link>
-                      </Button>
-                      <Button
-                        onClick={() => {
-                          setIsOpen(false);
-                          window.location.href = '/login';
-                        }}
-                        variant="outline"
-                        className="w-full"
-                      >
-                        Admin Login
-                      </Button>
-                    </div>
+                    <Button asChild className="w-full">
+                      <Link href="/contact" onClick={() => setIsOpen(false)}>
+                        Schedule Consultation
+                      </Link>
+                    </Button>
                   </div>
                 )}
                 
