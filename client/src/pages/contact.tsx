@@ -18,7 +18,7 @@ import {
   Users
 } from "lucide-react";
 import { SiWhatsapp, SiX, SiInstagram, SiLinkedin } from "react-icons/si";
-import contactHeroImg from "@assets/stock_images/construction_site_bu_47df4ab7.jpg";
+const contactHeroImg = "/images/construction_site_bu_47df4ab7.jpg";
 
 export default function Contact() {
   const [activeTab, setActiveTab] = useState("contact");

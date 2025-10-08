@@ -3,9 +3,9 @@ import Footer from "@/components/layout/footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Users, Award, Target, Heart, Building, Leaf, Globe } from "lucide-react";
-import missionImg from "@assets/stock_images/town_planning_urban__c6b36ecb.jpg";
-import architectureImg from "@assets/stock_images/modern_architecture__2168f8eb.jpg";
-import teamImg from "@assets/stock_images/office_meeting_prese_3bf44d4c.jpg";
+const missionImg = "/images/town_planning_urban__c6b36ecb.jpg";
+const architectureImg = "/images/modern_architecture__2168f8eb.jpg";
+const teamImg = "/images/office_meeting_prese_3bf44d4c.jpg";
 
 export default function About() {
   const values = [

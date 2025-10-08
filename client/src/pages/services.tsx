@@ -18,10 +18,10 @@ import {
   Target,
   ArrowRight 
 } from "lucide-react";
-import heroBg from "@assets/stock_images/modern_architecture__1dd46f40.jpg";
-import townPlanningImg from "@assets/stock_images/town_planning_urban__f692d963.jpg";
-import constructionImg from "@assets/stock_images/construction_site_bu_5aa0aa3f.jpg";
-import consultingImg from "@assets/stock_images/office_meeting_prese_9786d229.jpg";
+const heroBg = "/images/modern_architecture__1dd46f40.jpg";
+const townPlanningImg = "/images/town_planning_urban__f692d963.jpg";
+const constructionImg = "/images/construction_site_bu_5aa0aa3f.jpg";
+const consultingImg = "/images/office_meeting_prese_9786d229.jpg";
 
 export default function Services() {
   const mainServices = [

@@ -24,9 +24,9 @@ import {
   Play,
 } from "lucide-react";
 import type { Project, BlogPost, Webinar } from "@shared/schema";
-import townPlanningImg from "@assets/stock_images/town_planning_urban__372a6021.jpg";
-import constructionImg from "@assets/stock_images/construction_site_bu_5a501201.jpg";
-import architectureImg from "@assets/stock_images/modern_architecture__06302b96.jpg";
+const townPlanningImg = "/images/town_planning_urban__372a6021.jpg";
+const constructionImg = "/images/construction_site_bu_5a501201.jpg";
+const architectureImg = "/images/modern_architecture__06302b96.jpg";
 
 export default function Landing() {
   const { data: featuredProjects = [] } = useQuery<Project[]>({
