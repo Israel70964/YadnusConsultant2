@@ -27,13 +27,13 @@ export default function Contact() {
     {
       icon: <MapPin className="text-primary w-6 h-6" />,
       title: "Office Location",
-      details: "123 Planning Avenue, Suite 400\nMetropolitan City, MC 12345",
+      details: "123 Alausa, Ikeja City, Lagos",
       action: "Get Directions"
     },
     {
       icon: <Phone className="text-primary w-6 h-6" />,
       title: "Phone",
-      details: "+1 (555) 123-4567",
+      details: "+234 802 351-4195",
       action: "Call Now"
     },
     {
@@ -45,7 +45,7 @@ export default function Contact() {
     {
       icon: <Clock className="text-primary w-6 h-6" />,
       title: "Business Hours",
-      details: "Monday - Friday: 9:00 AM - 6:00 PM\nSaturday: 10:00 AM - 4:00 PM",
+      details: "Monday - Friday: 8:00 AM - 5:00 PM\nSaturday: 10:00 AM - 4:00 PM",
       action: "Schedule Call"
     }
   ];
@@ -53,7 +53,7 @@ export default function Contact() {
   const socialLinks = [
     { 
       name: "WhatsApp", 
-      href: "https://wa.me/15551234567", 
+      href: "https://wa.me/08023514195", 
       icon: SiWhatsapp,
       description: "Message us directly"
     },
